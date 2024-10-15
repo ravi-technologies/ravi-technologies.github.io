@@ -104,10 +104,21 @@ nav ul li a:hover {
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     line-height: 1.2;
     color: var(--primary-color);
-    /* Remove text-shadow */
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.hero-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
 }
 
 .hero-content p {
@@ -156,13 +167,26 @@ section h2 {
     text-align: center;
     margin-bottom: 3rem;
     color: var(--primary-color);
-    /* Remove text-shadow */
+    position: relative;
+    padding-bottom: 15px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
 }
 
 .feature-grid, .why-ravi-grid, .audience-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    margin-top: 4rem;
 }
 
 /* Update the base styles for all cards */

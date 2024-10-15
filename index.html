@@ -15,6 +15,9 @@
     <header>
         <nav>
             <div class="logo">Ravi</div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#why-ravi">Why Ravi</a></li>
@@ -116,5 +119,25 @@
             </div>
         </div>
     </footer>
+
+    <!-- Add this script just before the closing </body> tag -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navUl = document.querySelector('nav ul');
+
+            menuToggle.addEventListener('click', function() {
+                navUl.classList.toggle('show');
+            });
+
+            // Close menu when a link is clicked
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navUl.classList.remove('show');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -340,3 +340,164 @@ section:nth-child(even) {
 .audience-card:nth-child(1):hover { box-shadow: 12px 12px 0 rgba(192, 57, 43, 0.3); }
 .audience-card:nth-child(2):hover { box-shadow: 12px 12px 0 rgba(241, 196, 15, 0.3); }
 .audience-card:nth-child(3):hover { box-shadow: 12px 12px 0 rgba(46, 204, 113, 0.3); }
+
+/* Add these new styles at the end of the file */
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-right: 1rem;
+    }
+
+    #hero {
+        padding-top: 120px; /* Increase top padding to accommodate the navbar */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem; /* Reduce font size for smaller screens */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Reduce font size for smaller screens */
+    }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    #hero {
+        padding-top: 150px; /* Further increase top padding */
+    }
+
+    .hero-content h1 {
+        font-size: 1.75rem; /* Further reduce font size */
+    }
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    #hero {
+        padding-top: 80px; /* Adjust top padding for collapsed navbar */
+    }
+}
+
+/* Update the existing media query */
+@media (max-width: 480px) {
+    #hero {
+        padding-top: 100px; /* Adjust top padding for collapsed navbar on smaller screens */
+    }
+}
+
+/* Add these new styles at the end of the file */
+
+@media (max-width: 768px) {
+    /* Existing styles... */
+
+    .feature-grid, .why-ravi-grid, .audience-grid {
+        grid-template-columns: 1fr; /* Single column layout on mobile */
+        gap: 1.5rem; /* Reduce gap between cards */
+        padding: 0 1rem; /* Add padding to the grid container */
+    }
+
+    .feature-card, .why-ravi-item, .audience-card {
+        padding: 1.5rem; /* Reduce padding inside cards */
+        margin: 0 1rem; /* Add margin to create space between cards and screen edge */
+        font-size: 0.9rem; /* Slightly reduce font size in cards */
+    }
+
+    .feature-card h3, .why-ravi-item h3, .audience-card h3 {
+        font-size: 1.2rem; /* Reduce heading size in cards */
+    }
+
+    .feature-icon, .why-ravi-item i, .audience-card i {
+        font-size: 2rem; /* Reduce icon size */
+        margin-bottom: 0.75rem; /* Reduce space below icons */
+    }
+
+    section {
+        padding: 4rem 1rem; /* Reduce section padding on mobile */
+    }
+
+    section h2 {
+        font-size: 2rem; /* Reduce section heading size */
+        margin-bottom: 2rem; /* Reduce space below section headings */
+    }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+    /* Existing styles... */
+
+    .feature-card, .why-ravi-item, .audience-card {
+        padding: 1.25rem; /* Further reduce padding inside cards */
+        margin: 0 0.75rem; /* Slightly reduce margin on very small screens */
+    }
+
+    .feature-card h3, .why-ravi-item h3, .audience-card h3 {
+        font-size: 1.1rem; /* Further reduce heading size in cards */
+    }
+
+    .feature-icon, .why-ravi-item i, .audience-card i {
+        font-size: 1.75rem; /* Further reduce icon size */
+    }
+
+    section h2 {
+        font-size: 1.75rem; /* Further reduce section heading size */
+    }
+}

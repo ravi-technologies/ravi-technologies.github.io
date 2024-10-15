@@ -9,13 +9,13 @@ html {
 }
 
 :root {
-    --primary-color: #10a37f; /* OpenAI teal */
-    --secondary-color: #202123; /* Dark gray for text */
+    --primary-color: #4a4a4a; /* Changed from teal to a neutral dark gray */
+    --secondary-color: #202123;
     --background-color: #ffffff;
     --text-color: #353740;
     --light-gray: #f7f7f8;
     --border-color: #d9d9e3;
-    --hover-color: #0e906f; /* Darker teal for hover states */
+    --hover-color: #2a2a2a; /* Darker gray for hover states */
 }
 
 body {
@@ -25,10 +25,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
-    background-image: linear-gradient(rgba(217, 217, 227, 0.1) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(217, 217, 227, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    background-position: center center;
+    background-image: none; /* Remove the grid background */
 }
 
 header {
@@ -48,7 +45,7 @@ nav {
 .logo {
     font-weight: bold;
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: var(--secondary-color); /* Changed from primary color to secondary color */
 }
 
 nav ul {
@@ -90,28 +87,119 @@ section {
 }
 
 #hero {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 4rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--light-gray);
-    color: var(--text-color);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .hero-content {
-    max-width: 50%;
+    max-width: 60%;
+    z-index: 2;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    overflow: hidden;
+}
+
+/* Remove the hero-background div entirely */
+.hero-background {
+    display: none;
 }
 
 h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3.5rem;
+    font-weight: 800;
     margin-bottom: 1rem;
     color: var(--secondary-color);
+    line-height: 1.2;
 }
 
-h2 {
-    font-size: 2rem;
+.highlight {
+    color: var(--secondary-color); /* Changed from primary color to secondary color */
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    max-width: 80%;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--hover-color);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
     color: var(--secondary-color);
-    margin-bottom: 1.5rem;
+    border: 2px solid var(--secondary-color);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-image {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        margin-top: 2rem;
+    }
+
+    .hero-subtitle {
+        max-width: 100%;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
 }
 
 .feature-grid {
@@ -185,7 +273,7 @@ h2 {
     bottom: 1rem;
     right: 1rem;
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: var(--secondary-color); /* Changed from primary color to secondary color */
     transition: transform 0.3s ease;
 }
 
@@ -194,7 +282,7 @@ h2 {
 }
 
 footer {
-    background-color: var(--light-gray);
+    background-color: var(--background-color);
     color: var(--text-color);
     padding: 4rem 5% 2rem;
     border-top: 1px solid var(--border-color);
@@ -210,7 +298,7 @@ footer {
 .footer-logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--secondary-color); /* Changed from primary color to secondary color */
 }
 
 .footer-links {
@@ -234,7 +322,7 @@ footer {
 }
 
 .footer-column a:hover {
-    color: var(--primary-color);
+    color: var(--hover-color);
 }
 
 .footer-bottom {
@@ -285,7 +373,7 @@ section ul li::before {
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
     mask-size: contain;
     mask-repeat: no-repeat;
@@ -297,12 +385,55 @@ section ul li:hover::before {
 }
 
 /* Specific styling for #why-ravi and #target-audience sections */
+/*
 #why-ravi, #target-audience {
     background-color: var(--light-gray);
 }
+*/
 
 #why-ravi h2, #target-audience h2 {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-size: 2.2rem;
     margin-bottom: 2rem;
+}
+
+/* Add this new style for consistent section headers */
+section h2 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Update the feature-grid to handle 3 columns for the "Who It's For" section */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Add styles for the feature icons */
+.feature-icon {
+    font-size: 2rem;
+    color: var(--secondary-color); /* Changed from primary color to secondary color */
+    margin-bottom: 1rem;
+}
+
+/* Ensure consistent spacing in feature cards */
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.feature-card h3 {
+    margin-top: 0;
+}
+
+/* Add responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
 }

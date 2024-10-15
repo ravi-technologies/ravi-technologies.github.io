@@ -183,15 +183,30 @@ section h2 {
     transform: translateY(-5px);
 }
 
+/* Update the icon colors to match their respective shadow colors */
+
+/* Feature card icons */
+.feature-card:nth-child(1) i { color: rgba(231, 76, 60, 1); }
+.feature-card:nth-child(2) i { color: rgba(243, 156, 18, 1); }
+.feature-card:nth-child(3) i { color: rgba(39, 174, 96, 1); }
+.feature-card:nth-child(4) i { color: rgba(52, 152, 219, 1); }
+
+/* Why Ravi item icons */
+.why-ravi-item:nth-child(1) i { color: rgba(155, 89, 182, 1); }
+.why-ravi-item:nth-child(2) i { color: rgba(22, 160, 133, 1); }
+.why-ravi-item:nth-child(3) i { color: rgba(211, 84, 0, 1); }
+.why-ravi-item:nth-child(4) i { color: rgba(41, 128, 185, 1); }
+
+/* Audience card icons */
+.audience-card:nth-child(1) i { color: rgba(192, 57, 43, 1); }
+.audience-card:nth-child(2) i { color: rgba(241, 196, 15, 1); }
+.audience-card:nth-child(3) i { color: rgba(46, 204, 113, 1); }
+
+/* Remove the general icon color setting */
 .feature-icon, .why-ravi-item i, .audience-card i {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-}
-
-.feature-card h3, .why-ravi-item h3, .audience-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
+    /* Remove the color property from here */
 }
 
 #why-ravi {

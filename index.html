@@ -3,133 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ravi - Secure Your Digital Life</title>
+    <title>Ravi - Secure 2FA App with Private OTP Number</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Add Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="navbar">
             <div class="logo">Ravi</div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#waitlist">Join Beta</a>
             </div>
-            <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#why-ravi">Why Ravi</a></li>
-                <li><a href="#target-audience">Who It's For</a></li>
-            </ul>
+            <div class="nav-buttons">
+                <a href="#waitlist" class="btn-primary">Join Private Beta</a>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Secure Your Digital Life with <span class="highlight">Double Protection</span></h1>
-                <p>Picture a world where your online accounts are safe from unauthorized access, and your personal phone number stays private. With Ravi, you can explore the digital space with ease, knowing your identity is secure and annoying scam calls are gone for good. Enjoy real peace of mind as you stay safe and private in every interaction.</p>
-                <a href="#features" class="cta-button">Explore Features</a>
-            </div>
-        </section>
-
-        <section id="features">
-            <h2>Cutting-Edge Features</h2>
-            <div class="feature-grid staggered-grid">
-                <div class="feature-card">
-                    <i class="fas fa-key feature-icon"></i>
-                    <h3>2FA Code Generation</h3>
-                    <p>Securely store your secrets and generate time-based 2FA codes for all your online accounts.</p>
+        <section class="hero">
+            <div class="container">
+                <h1>Keep Your Real Number Private.<br>Use Ravi for OTPs.</h1>
+                <p class="hero-subtitle">Tired of sharing your personal number everywhere? Ravi generates secure 2FA codes and gives you a private VoIP number for OTPs—protecting you from data leaks, spam, and SIM swap attacks.</p>
+                <div class="hero-cta">
+                    <a href="#waitlist" class="btn-primary">Join Private Beta</a>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-phone-alt feature-icon"></i>
-                    <h3>Private VoIP Number for OTPs</h3>
-                    <p>Get a dedicated VoIP phone number that receives OTPs, protecting your real number from data leaks and unauthorized access.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-shield-virus feature-icon"></i>
-                    <h3>Spam & Scam Protection</h3>
-                    <p>By using the VoIP number for sign-ups, avoid annoying spam calls and phishing attempts, ensuring a cleaner, safer communication experience.</p>
+                <div class="hero-image">
+                    <svg class="app-preview" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="800" height="500" rx="16" fill="#1A1A1A"/>
+                        <rect x="40" y="40" width="320" height="420" rx="12" fill="#252525"/>
+                        <rect x="440" y="40" width="320" height="420" rx="12" fill="#252525"/>
+                        <circle cx="200" cy="120" r="60" fill="#7C5CFF" fill-opacity="0.1"/>
+                        <rect x="80" y="200" width="240" height="40" rx="8" fill="#333"/>
+                        <rect x="80" y="260" width="240" height="40" rx="8" fill="#333"/>
+                        <rect x="80" y="320" width="240" height="40" rx="8" fill="#333"/>
+                        <circle cx="600" cy="120" r="60" fill="#FFB84C" fill-opacity="0.1"/>
+                        <rect x="480" y="200" width="240" height="40" rx="8" fill="#333"/>
+                        <rect x="480" y="260" width="240" height="40" rx="8" fill="#333"/>
+                        <rect x="480" y="320" width="240" height="40" rx="8" fill="#333"/>
+                    </svg>
                 </div>
             </div>
         </section>
 
-        <section id="why-ravi">
-            <h2>Why Choose Ravi?</h2>
-            <div class="why-ravi-grid staggered-grid">
-                <div class="why-ravi-item">
-                    <i class="fas fa-user-secret"></i>
-                    <h3>Enhanced Privacy</h3>
-                    <p>Keep your real phone number hidden from websites and apps, reducing the risk of data leaks.</p>
+        <section class="features" id="features">
+            <div class="container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M24 16V24L30 30" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>2FA Code Generator</h3>
+                    <p>Generate secure authentication codes for all your accounts in one place. Simple, fast, and reliable.</p>
                 </div>
-                <div class="why-ravi-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>One App, Double Security</h3>
-                    <p>Combine 2FA code generation with OTP handling in one seamless app—no need for multiple tools.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 8H16C13.7909 8 12 9.79086 12 12V36C12 38.2091 13.7909 40 16 40H32C34.2091 40 36 38.2091 36 36V12C36 9.79086 34.2091 8 32 8Z" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M24 34H24.02" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="18" y="14" width="12" height="16" rx="2" stroke="#7C5CFF" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Private OTP Number</h3>
+                    <p>Get a dedicated VoIP number for receiving OTPs. Keep your real phone number private and secure.</p>
                 </div>
-                <div class="why-ravi-item">
-                    <i class="fas fa-ban"></i>
-                    <h3>No More Spam Calls</h3>
-                    <p>Use the VoIP number exclusively for sign-ups and OTPs, keeping your primary number free from unwanted calls.</p>
-                </div>
-                <div class="why-ravi-item">
-                    <i class="fas fa-sync"></i>
-                    <h3>Cross-Platform Sync & Backup</h3>
-                    <p>Securely sync your 2FA codes and VoIP messages across devices, with encrypted backups for peace of mind.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M24 12V24L16 32" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M24 12V24L32 32" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>SIM Swap Protection</h3>
+                    <p>Your OTPs arrive on a virtual number, making you immune to SIM swap attacks and phone number leaks.</p>
                 </div>
             </div>
         </section>
 
-        <section id="target-audience">
-            <h2>Who It's For</h2>
-            <div class="audience-grid staggered-grid">
-                <div class="audience-card">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Privacy-Conscious Individuals</h3>
-                    <p>People who want to keep their personal data safe from breaches, leaks, and scams.</p>
+        <section class="benefits" id="benefits">
+            <div class="container">
+                <h2>Why Choose Ravi?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h3>Privacy First</h3>
+                        <p>Keep your real phone number private and protect yourself from data breaches and spam calls.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>All-in-One Security</h3>
+                        <p>Combine 2FA code generation and secure OTP reception in a single, easy-to-use app.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>SIM Swap Immunity</h3>
+                        <p>Your virtual number can't be SIM swapped, keeping your accounts safe from this common attack.</p>
+                    </div>
                 </div>
-                <div class="audience-card">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>Frequent Online Shoppers & Users</h3>
-                    <p>Anyone signing up for multiple services and tired of sharing their personal number everywhere.</p>
-                </div>
-                <div class="audience-card">
-                    <i class="fas fa-briefcase"></i>
-                    <h3>Businesses & Freelancers</h3>
-                    <p>Professionals needing a separate, secure number for business-related OTPs without mixing it with their personal contacts.</p>
-                </div>
+            </div>
+        </section>
+
+        <section class="waitlist" id="waitlist">
+            <div class="container">
+                <h2>Join the Waitlist</h2>
+                <p>Be one of the first to try Ravi and take control of your digital security</p>
+                <form class="waitlist-form" method="POST" action="https://script.google.com/macros/s/AKfycbyXSaLg62w5jHSqUCaRNs77bp66TzAdwh7GWAXkP3WGZUK44fxV9WaMyX0sSg0hHSuB3g/exec">
+                    <input type="email" name="email" placeholder="Enter your email to join the waitlist" required />
+                    <button type="submit" class="btn-primary">Join Waitlist</button>
+                </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">Ravi</div>
-            <div class="footer-links">
-                <a href="#features">Features</a>
-                <a href="#why-ravi">Why Ravi</a>
-                <a href="#target-audience">Who It's For</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Ravi</div>
+                <div class="footer-links">
+                    <a href="#features">Features</a>
+                    <a href="#benefits">Benefits</a>
+                    <a href="#waitlist">Join Beta</a>
+                </div>
+                <div class="footer-social">
+                    <p> 2025 Ravi. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
-
-    <!-- Add this script just before the closing </body> tag -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navUl = document.querySelector('nav ul');
+            const form = document.querySelector('.waitlist-form');
+            const emailInput = form.querySelector('input[name="email"]');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
 
-            menuToggle.addEventListener('click', function() {
-                navUl.classList.toggle('show');
+            // Create status message container
+            const statusContainer = document.createElement('div');
+            statusContainer.className = 'status-container';
+            form.appendChild(statusContainer);
+
+            // Email validation
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            function validateEmail(email) {
+                if (!email) {
+                    return 'Email is required';
+                }
+                if (!emailRegex.test(email)) {
+                    return 'Please enter a valid email address';
+                }
+                return null;
+            }
+
+            // Show status message
+            function showStatus(type, message) {
+                console.log('Showing status:', type, message);
+                statusContainer.innerHTML = `
+                    <div class="status-message ${type}-message">
+                        ${type === 'success' ? '🎉 ' : ''}${message}
+                    </div>
+                `;
+
+                // Auto-hide all messages after 5 seconds
+                setTimeout(() => {
+                    const messageElement = statusContainer.querySelector('.status-message');
+                    if (messageElement) {
+                        messageElement.classList.add('fade-out');
+                        setTimeout(() => {
+                            statusContainer.innerHTML = '';
+                        }, 300);
+                    }
+                }, 5000);
+            }
+
+            // Set button loading state
+            function setButtonLoading(loading) {
+                console.log('Setting button loading:', loading);
+                if (loading) {
+                    submitButton.innerHTML = '<span class="spinner"></span>Joining...';
+                    submitButton.disabled = true;
+                } else {
+                    submitButton.innerHTML = originalButtonText;
+                    submitButton.disabled = false;
+                }
+            }
+
+            emailInput.addEventListener('input', () => {
+                const existingError = form.querySelector('.error-message');
+                if (existingError) {
+                    existingError.remove();
+                }
+                emailInput.classList.remove('error');
             });
 
-            // Close menu when a link is clicked
-            const navLinks = document.querySelectorAll('nav ul li a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    navUl.classList.remove('show');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = emailInput.value.trim();
+
+                // Validate email
+                const errorMessage = validateEmail(email);
+                if (errorMessage) {
+                    const existingError = form.querySelector('.error-message');
+                    if (existingError) {
+                        existingError.remove();
+                    }
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'error-message';
+                    errorDiv.textContent = errorMessage;
+                    emailInput.insertAdjacentElement('afterend', errorDiv);
+                    emailInput.classList.add('error');
+                    return;
+                }
+
+                setButtonLoading(true);
+
+                // Add source info
+                const formData = new FormData(form);
+                formData.append('source', 'ravi-technologies.github.io');
+                const params = new URLSearchParams(formData);
+                console.log('Submitting data:', Object.fromEntries(params));
+
+                fetch(form.action, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: params.toString()
+                }).then(response => {
+                    console.log('Response received:', response);
+                    if (!response.ok && response.status !== 0) { // status 0 is expected with no-cors
+                        throw new Error('Network response was not ok');
+                    }
+                    console.log('Form submitted successfully');
+                    emailInput.value = '';
+                    setButtonLoading(false);
+                    showStatus('success', 'Thanks for joining the Ravi waitlist! We\'ll be in touch soon.');
+                }).catch((error) => {
+                    console.error('Submission error:', error);
+                    setButtonLoading(false);
+                    showStatus('error', 'Something went wrong. Please try again.');
                 });
             });
         });

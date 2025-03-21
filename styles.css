@@ -290,134 +290,87 @@ body {
 }
 
 .waitlist-form {
-    max-width: 400px;
-    margin: 0 auto;
     display: flex;
-    gap: 16px;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    position: relative;
 }
 
-.waitlist-form input {
+.waitlist-form input[type="email"] {
     flex: 1;
-    padding: 12px 16px;
-    border: var(--card-border);
+    padding: 1rem 1.5rem;
+    border: 1px solid #333;
     border-radius: 8px;
-    font-size: 14px;
-    background: var(--card-bg);
-    color: var(--text-primary);
+    background: #1A1A1A;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
-.waitlist-form input:focus {
+.waitlist-form input[type="email"]:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: #7C5CFF;
 }
 
-.waitlist-form input:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
+.waitlist-form input[type="email"].error {
+    border-color: #ff4646;
 }
 
-.waitlist-form input.error {
-    border-color: #ff4d4d;
-}
-
-.waitlist-form button {
-    background: var(--primary);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    border: none;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
-.waitlist-form button:hover {
-    background: var(--primary-hover);
-    transform: scale(1.02);
-}
-
-.waitlist-form button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-.error-message {
-    color: #ff4d4d;
-    font-size: 12px;
-    margin-top: 8px;
-    text-align: left;
-}
-
-.success-message {
-    text-align: center;
-    padding: 32px;
-    background: var(--card-bg);
-    border-radius: 16px;
-    border: 1px solid var(--primary);
-}
-
-.success-message h3 {
-    font-size: 20px;
+.waitlist-form .btn-primary {
+    padding: 1rem 2rem;
+    min-width: 140px;
     font-weight: 600;
-    margin-bottom: 12px;
-    color: var(--text-primary);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
-.success-message p {
-    font-size: 14px;
-    color: var(--text-secondary);
+.waitlist-form .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
-@media (max-width: 768px) {
-    .waitlist-form {
-        flex-direction: column;
-        padding: 0 24px;
-    }
-}
-
-/* Status Messages */
+/* Status Message Styles */
 .status-container {
-    margin-top: 16px;
-    min-height: 48px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -40px;
+    text-align: center;
 }
 
 .status-message {
-    padding: 12px 16px;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
     border-radius: 8px;
-    font-size: 14px;
-    animation: fadeIn 0.3s ease-in-out;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.status-message.fade-out {
-    opacity: 0;
-    transform: translateY(-10px);
+    font-size: 0.9rem;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease;
 }
 
 .success-message {
     background: rgba(124, 92, 255, 0.1);
-    color: var(--primary);
-    border: 1px solid var(--primary);
+    color: #7C5CFF;
 }
 
 .error-message {
-    background: rgba(255, 77, 77, 0.1);
-    color: #ff4d4d;
-    border: 1px solid #ff4d4d;
+    background: rgba(255, 70, 70, 0.1);
+    color: #ff4646;
+    margin-top: 0.5rem;
 }
 
 /* Loading Spinner */
 .spinner {
-    display: inline-block;
     width: 16px;
     height: 16px;
-    margin-right: 8px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     border-top-color: #fff;
     animation: spin 0.8s linear infinite;
-    vertical-align: -3px;
+    display: inline-block;
 }
 
 @keyframes spin {
@@ -429,7 +382,7 @@ body {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
@@ -437,16 +390,19 @@ body {
     }
 }
 
-/* Form validation styles */
-.waitlist-form input.error {
-    border-color: #ff4d4d;
+.fade-out {
+    animation: fadeOut 0.3s ease forwards;
 }
 
-.error-message {
-    color: #ff4d4d;
-    font-size: 12px;
-    margin-top: 8px;
-    text-align: left;
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
 }
 
 /* Footer */

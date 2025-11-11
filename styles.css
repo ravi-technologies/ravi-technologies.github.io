@@ -232,14 +232,14 @@ body {
     box-shadow: var(--card-shadow);
 }
 
-/* Features Section */
-.features {
+/* How It Works Section */
+.how-it-works {
     padding: 80px 0;
-    background: var(--background);
+    background: linear-gradient(180deg, var(--background) 0%, rgba(124, 92, 255, 0.03) 100%);
     position: relative;
 }
 
-.features::before {
+.how-it-works::before {
     content: '';
     position: absolute;
     top: 0;
@@ -247,139 +247,297 @@ body {
     right: 0;
     bottom: 0;
     background-image:
-        radial-gradient(circle at 1px 1px, rgba(124, 92, 255, 0.1) 1px, transparent 0);
-    background-size: 20px 20px;
+        radial-gradient(circle at 1px 1px, rgba(124, 92, 255, 0.08) 1px, transparent 0);
+    background-size: 24px 24px;
     opacity: 0.3;
     pointer-events: none;
 }
 
-.features .container {
+.how-it-works h2 {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 64px;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+}
+
+/* Capability Highlight */
+.capability-highlight {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+    margin-bottom: 80px;
+    padding: 40px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+}
+
+.capability-content h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.capability-lead {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.capability-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.capability-list li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    padding-left: 24px;
+    position: relative;
+}
+
+.capability-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.capability-list strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.capability-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+}
+
+.stat-card {
+    background: rgba(124, 92, 255, 0.08);
+    border: 1px solid rgba(124, 92, 255, 0.2);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Roadmap Section */
+.roadmap-section {
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 1;
+}
+
+.roadmap-section h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.roadmap-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.roadmap-grid-two {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.roadmap-card {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    transition: all 0.15s ease;
+    text-align: center;
+    position: relative;
+}
+
+.roadmap-card:hover {
+    transform: translateY(-4px);
+    background: rgba(20, 20, 20, 0.95);
+}
+
+.roadmap-card.coming-soon {
+    border-color: rgba(0, 212, 255, 0.2);
+}
+
+.roadmap-card.coming-soon:hover {
+    border-color: rgba(0, 212, 255, 0.4);
+}
+
+.roadmap-card.future {
+    border-color: rgba(139, 95, 255, 0.2);
+}
+
+.roadmap-card.future:hover {
+    border-color: rgba(139, 95, 255, 0.4);
+}
+
+.roadmap-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.roadmap-card.coming-soon .roadmap-badge {
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.roadmap-card.future .roadmap-badge {
+    background: rgba(139, 95, 255, 0.15);
+    color: var(--accent-purple);
+    border: 1px solid rgba(139, 95, 255, 0.3);
+}
+
+.roadmap-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.roadmap-icon svg {
+    width: 40px;
+    height: 40px;
+    transition: all 0.15s ease;
+}
+
+.roadmap-card:hover .roadmap-icon svg {
+    transform: scale(1.05);
+}
+
+.roadmap-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.roadmap-card p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Learn More Section */
+.learn-more {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 32px;
     position: relative;
     z-index: 1;
 }
 
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.learn-more-card {
+    background: rgba(124, 92, 255, 0.05);
+    border: 1px solid rgba(124, 92, 255, 0.15);
+    border-radius: 8px;
+    padding: 32px;
+    transition: all 0.15s ease;
 }
 
-.feature-icon {
-    display: flex;
-    justify-content: center;
+.learn-more-card:hover {
+    background: rgba(124, 92, 255, 0.08);
+    border-color: rgba(124, 92, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.learn-more-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.learn-more-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.learn-more-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    display: inline-flex;
     align-items: center;
-    margin-bottom: 24px;
+    gap: 4px;
 }
 
-.feature-icon svg {
-    width: 48px;
-    height: 48px;
-    transition: all 0.15s ease;
+.learn-more-link:hover {
+    color: var(--accent-cyan);
+    gap: 8px;
 }
 
-.feature-card:hover .feature-icon svg {
-    transform: scale(1.05);
-}
-
-.feature-card {
-    background: var(--surface);
-    padding: 24px;
-    border-radius: 8px;
-    text-align: center;
-    transition: all 0.15s ease;
-    border: 1px solid var(--border);
-}
-
-.feature-card:hover {
-    transform: translateY(-4px);
-    background: rgba(20, 20, 20, 0.95);
-    border: 1px solid rgba(124, 92, 255, 0.2);
-}
-
-.feature-card img {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 24px;
-}
-
-.feature-card h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: var(--text-primary);
-}
-
-.feature-card p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-/* Benefits Section */
-.benefits {
-    padding: 80px 0;
-    background: linear-gradient(180deg, var(--background) 0%, rgba(124, 92, 255, 0.05) 100%);
-}
-
-.benefits h2 {
-    font-size: 32px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 48px;
-    color: var(--text-primary);
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.benefit-item {
-    background: var(--surface);
-    padding: 24px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    transition: all 0.15s ease;
-}
-
-.benefit-item:hover {
-    transform: translateY(-4px);
-    background: rgba(20, 20, 20, 0.95);
-    border: 1px solid rgba(124, 92, 255, 0.2);
-}
-
-.benefit-item h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: var(--text-primary);
-}
-
-.benefit-item p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
-    .benefits-grid {
+    .capability-highlight {
         grid-template-columns: 1fr;
-        padding: 0 24px;
+        gap: 32px;
+        padding: 24px;
     }
-    
-    .benefit-item {
-        text-align: center;
+
+    .roadmap-grid,
+    .roadmap-grid-two {
+        grid-template-columns: 1fr;
+    }
+
+    .learn-more {
+        grid-template-columns: 1fr;
+    }
+
+    .how-it-works h2 {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .capability-content h3 {
+        font-size: 24px;
     }
 }
 

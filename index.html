@@ -39,58 +39,74 @@
             </div>
         </section>
 
-        <section class="features" id="features">
+        <section class="how-it-works" id="how-it-works">
             <div class="container">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M24 16V24L30 30" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Production-Aware Analysis</h3>
-                    <p>Ravi pulls the latest query stats, cache hit rates, and latency budgets before reviewing code, flagging changes that won't hold up under your actual load.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M32 8H16C13.7909 8 12 9.79086 12 12V36C12 38.2091 13.7909 40 16 40H32C34.2091 40 36 38.2091 36 36V12C36 9.79086 34.2091 8 32 8Z" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M24 34H24.02" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <rect x="18" y="14" width="12" height="16" rx="2" stroke="#7C5CFF" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3>Telemetry-Guided Guardrails</h3>
-                    <p>Correlate pull requests with OpenTelemetry traces, error spikes, and memory profiles to catch regressions that static-only reviewers miss.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M24 12V24L16 32" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M24 12V24L32 32" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Trade-Off Playbooks</h3>
-                    <p>Guidance explains when to optimize, when to defer, and which fixes align with the current state of your architecture, just like a senior engineer on your team.</p>
-                </div>
-            </div>
-        </section>
+                <h2>How Ravi Works</h2>
 
-        <section class="benefits" id="benefits">
-            <div class="container">
-                <h2>Why Engineering Leaders Choose Ravi</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <h3>Reviews Tuned to Your System</h3>
-                        <p>Every comment references the size of your datasets, traffic patterns, and SLAs so teams understand the <b>why</b> behind each suggestion.</p>
+                <!-- Current Capabilities -->
+                <div class="capability-highlight">
+                    <div class="capability-content">
+                        <h3>High-Signal, Production-Focused Reviews</h3>
+                        <p class="capability-lead">Ravi only flags issues that will materially impact production, keeping your team moving fast without sacrificing reliability.</p>
+                        <ul class="capability-list">
+                            <li><strong>Production-Impact Focus:</strong> Only surface issues that matter for your actual workload, skipping the noise of generic linters and style nits</li>
+                            <li><strong>Data-Driven Analysis:</strong> Catch N+1 queries, missing indexes, and scaling bottlenecks by analyzing actual table sizes, query costs, and execution patterns</li>
+                            <li><strong>Preserve Developer Velocity:</strong> Every suggestion is actionable and grounded in production reality, so teams can ship confidently without drowning in false positives</li>
+                        </ul>
                     </div>
-                    <div class="benefit-item">
-                        <h3>Prevent Costly Performance Regressions</h3>
-                        <p>Catch slow queries, noisy neighbors, and scaling bottlenecks before they impact customers or force midnight rollbacks.</p>
+                    <div class="capability-visual">
+                        <div class="stat-card">
+                            <div class="stat-number">High Signal</div>
+                            <div class="stat-label">Only flag production-impacting issues</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Metadata Only</div>
+                            <div class="stat-label">Schema, stats, and query plans. Never your data rows</div>
+                        </div>
                     </div>
-                    <div class="benefit-item">
-                        <h3>Coach Teams on Real-World Trade-Offs</h3>
-                        <p>Replace generic lint feedback with pragmatic guidance that balances speed, reliability, and cost for your environment.</p>
+                </div>
+
+                <!-- Roadmap -->
+                <div class="roadmap-section">
+                    <h3>On the Roadmap</h3>
+                    <div class="roadmap-grid roadmap-grid-two">
+                        <div class="roadmap-card coming-soon">
+                            <div class="roadmap-badge">Coming Soon</div>
+                            <div class="roadmap-icon">
+                                <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="#00D4FF" stroke-width="2"/>
+                                    <path d="M24 12V24L32 28" stroke="#00D4FF" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h4>Telemetry & Traffic Analysis</h4>
+                            <p>Correlate PRs with distributed traces, error patterns, request volumes, and latency budgets</p>
+                        </div>
+                        <div class="roadmap-card future">
+                            <div class="roadmap-badge">Future</div>
+                            <div class="roadmap-icon">
+                                <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="8" y="8" width="32" height="32" rx="4" stroke="#8B5FFF" stroke-width="2"/>
+                                    <path d="M24 16V32M16 24H32" stroke="#8B5FFF" stroke-width="2" stroke-linecap="round"/>
+                                    <circle cx="24" cy="24" r="3" fill="#8B5FFF"/>
+                                </svg>
+                            </div>
+                            <h4>Memory & Cache Profiling</h4>
+                            <p>Full observability stack integration for comprehensive reviews</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learn More -->
+                <div class="learn-more">
+                    <div class="learn-more-card">
+                        <h4>📚 Documentation</h4>
+                        <p>Step-by-step setup guide for integrating Ravi with your GitHub repos and PostgreSQL database.</p>
+                        <a href="https://ai.ravi.app/docs/" class="learn-more-link">Read the docs →</a>
+                    </div>
+                    <div class="learn-more-card">
+                        <h4>🔒 Privacy & Security</h4>
+                        <p>Learn how Ravi accesses only metadata, processes data transiently, and never touches customer data.</p>
+                        <a href="https://ai.ravi.app/privacy/" class="learn-more-link">Privacy policy →</a>
                     </div>
                 </div>
             </div>

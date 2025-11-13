@@ -104,12 +104,13 @@ body {
 /* Chapter Nav */
 .chapter-nav {
     position: sticky;
-    top: 56px;
+    top: 0;
     z-index: 40;
     border-bottom: 1px solid var(--border);
-    background: rgba(10, 10, 10, 0.9);
-    backdrop-filter: blur(8px);
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
     margin-bottom: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-nav .container {

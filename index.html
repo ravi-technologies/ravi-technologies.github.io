@@ -84,18 +84,18 @@
                 <div class="objections-section chapter-block" id="objections" data-chapter-section>
                     <h3>"But I don't need this..."</h3>
                     <div class="objection-grid">
-                        <details class="objection-card" open>
-                            <summary>"My senior engineers review everything"</summary>
+                        <div class="objection-card">
+                            <h4>"My senior engineers review everything"</h4>
                             <p>Even senior reviewers can't simulate production scale on every PR. Let them focus on design while Ravi automates the mechanical query and schema checks.</p>
-                        </details>
-                        <details class="objection-card">
-                            <summary>"We have good test coverage"</summary>
+                        </div>
+                        <div class="objection-card">
+                            <h4>"We have good test coverage"</h4>
                             <p>Tests run on empty fixtures. Production holds tens of millions of rows. Performance issues only appear when the real dataset and concurrency are considered.</p>
-                        </details>
-                        <details class="objection-card">
-                            <summary>"We catch issues in staging"</summary>
+                        </div>
+                        <div class="objection-card">
+                            <h4>"We catch issues in staging"</h4>
                             <p>Staging finds problems after days of work. Catching architectural mistakes inside the PR keeps fixes cheap and momentum high.</p>
-                        </details>
+                        </div>
                     </div>
                 </div>
 
@@ -187,19 +187,19 @@
                     <div class="capability-content">
                         <h3>Architectural Reviews on Every Pull Request</h3>
                         <p class="capability-lead">Ravi analyzes your code changes alongside your production system to catch issues that will actually impact reliability and performance.</p>
-                        <div class="capability-accordion">
-                            <details open>
-                                <summary>System-level understanding</summary>
+                        <div class="capability-list">
+                            <div class="capability-item">
+                                <h4>System-level understanding</h4>
                                 <p>Ravi reviews code in the context of your database schema, table sizes, and production constraints, not just abstract patterns.</p>
-                            </details>
-                            <details>
-                                <summary>Production-impact focus</summary>
+                            </div>
+                            <div class="capability-item">
+                                <h4>Production-impact focus</h4>
                                 <p>Only issues with tangible, material impact make it into the review so your engineers never chase noise.</p>
-                            </details>
-                            <details>
-                                <summary>Architectural guidance</summary>
+                            </div>
+                            <div class="capability-item">
+                                <h4>Architectural guidance</h4>
                                 <p>The review explains trade-offs and suggests alternatives the way a pragmatic senior architect would, grounded in your workload.</p>
-                            </details>
+                            </div>
                         </div>
                     </div>
                     <div class="capability-visual">

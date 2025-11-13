@@ -394,51 +394,29 @@ body {
     line-height: 1.6;
 }
 
-.capability-accordion {
+.capability-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
 }
 
-.capability-accordion details {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    background: rgba(255, 255, 255, 0.02);
+.capability-item {
+    border-left: 3px solid var(--primary);
+    padding-left: 20px;
 }
 
-.capability-accordion summary {
-    list-style: none;
-    cursor: pointer;
+.capability-item h4 {
     font-weight: 600;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    font-size: 16px;
     color: var(--text-primary);
+    margin-bottom: 8px;
 }
 
-.capability-accordion summary::-webkit-details-marker {
-    display: none;
-}
-
-.capability-accordion summary::after {
-    content: '+';
-    font-weight: 600;
-    color: var(--text-secondary);
-    transition: transform 0.2s ease;
-}
-
-.capability-accordion details[open] summary::after {
-    transform: rotate(45deg);
-}
-
-.capability-accordion p {
-    margin-top: 12px;
+.capability-item p {
     font-size: 14px;
     color: var(--text-secondary);
     line-height: 1.6;
+    margin: 0;
 }
 
 
@@ -563,43 +541,21 @@ body {
     background: rgba(20, 20, 20, 0.5);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    overflow: hidden;
+    padding: 24px;
 }
 
-.objection-card summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 20px 24px;
-    font-size: 15px;
+.objection-card h4 {
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.objection-card summary::-webkit-details-marker {
-    display: none;
-}
-
-.objection-card summary::after {
-    content: '⌄';
-    font-size: 14px;
-    color: var(--text-secondary);
-    transition: transform 0.2s ease;
-}
-
-.objection-card[open] summary::after {
-    transform: rotate(180deg);
+    margin-bottom: 12px;
 }
 
 .objection-card p {
     font-size: 14px;
     color: var(--text-secondary);
     line-height: 1.6;
-    padding: 0 24px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 0;
 }
 
 /* Examples Section */

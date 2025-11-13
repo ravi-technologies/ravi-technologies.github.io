@@ -419,11 +419,47 @@ body {
     margin: 0;
 }
 
+/* Roadmap/Architect Cards */
+.roadmap-section {
+    margin: 48px 0;
+}
+
+.roadmap-grid-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.roadmap-card {
+    background: rgba(20, 20, 20, 0.5);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.roadmap-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+}
+
+.roadmap-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
 
 .roadmap-card p {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* Learn More Section */

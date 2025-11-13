@@ -39,11 +39,20 @@
             </div>
         </section>
 
+        <nav class="chapter-nav" aria-label="Examples chapters">
+            <div class="container">
+                <a href="#scale-advice" class="chapter-link active" data-section="scale-advice">Scale Advice</a>
+                <a href="#over-engineering" class="chapter-link" data-section="over-engineering">Over-Engineering</a>
+                <a href="#performance" class="chapter-link" data-section="performance">Performance</a>
+                <a href="#breaking-changes" class="chapter-link" data-section="breaking-changes">Breaking Changes</a>
+            </div>
+        </nav>
+
         <section class="examples-content">
             <div class="container">
                 <div class="examples-layout">
                     <aside class="chapter-index" aria-label="Example index">
-                        <div class="index-group">
+                        <div class="index-group" data-section="scale-advice">
                             <p class="index-group-label">Scale Advice</p>
                             <a href="#example-caching" class="example-link" data-chapter-link="example-caching">
                                 <span class="example-link-title">Scale-based caching</span>
@@ -67,7 +76,7 @@
                             </a>
                         </div>
 
-                        <div class="index-group">
+                        <div class="index-group" data-section="over-engineering">
                             <p class="index-group-label">Over-Engineering</p>
                             <a href="#example-sharding" class="example-link" data-chapter-link="example-sharding">
                                 <span class="example-link-title">Database sharding</span>
@@ -75,7 +84,7 @@
                             </a>
                         </div>
 
-                        <div class="index-group">
+                        <div class="index-group" data-section="performance">
                             <p class="index-group-label">Performance</p>
                             <a href="#example-missing-index-scale" class="example-link" data-chapter-link="example-missing-index-scale">
                                 <span class="example-link-title">Missing indexes</span>
@@ -115,7 +124,7 @@
                             </a>
                         </div>
 
-                        <div class="index-group">
+                        <div class="index-group" data-section="breaking-changes">
                             <p class="index-group-label">Breaking Changes</p>
                             <a href="#example-column-drop" class="example-link" data-chapter-link="example-column-drop">
                                 <span class="example-link-title">Dropping columns</span>

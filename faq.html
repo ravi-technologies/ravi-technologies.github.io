@@ -38,55 +38,184 @@
 
         <nav class="chapter-nav" aria-label="FAQ chapters">
             <div class="container">
+                <a href="#faq-objections" class="chapter-link" data-chapter-link="faq-objections">Common Concerns</a>
                 <a href="#faq-overview" class="chapter-link" data-chapter-link="faq-overview">Getting Started</a>
-                <a href="#faq-security" class="chapter-link" data-chapter-link="faq-security">Security</a>
-                <a href="#faq-support" class="chapter-link" data-chapter-link="faq-support">Support</a>
+                <a href="#faq-technical" class="chapter-link" data-chapter-link="faq-technical">Technical Details</a>
+                <a href="#faq-security" class="chapter-link" data-chapter-link="faq-security">Security & Privacy</a>
             </div>
         </nav>
 
         <section class="faq-section">
             <div class="container">
+                <div class="faq-group" id="faq-objections" data-chapter-section>
+                    <h2>Common Concerns</h2>
+                    <div class="faq-grid">
+                        <details class="faq-item" open>
+                            <summary>My senior engineers review everything</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Even senior reviewers can't simulate production scale on every PR. Let them focus on design while Ravi automates the mechanical query and schema checks.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>We have good test coverage</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Tests run on empty fixtures. Production holds tens of millions of rows. Performance issues only appear when the real dataset and concurrency are considered.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>We catch issues in staging</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Staging finds problems after days of work. Catching architectural mistakes inside the PR keeps fixes cheap and momentum high.</p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
                 <div class="faq-group" id="faq-overview" data-chapter-section>
                     <h2>Getting Started</h2>
                     <div class="faq-grid">
                         <details class="faq-item" open>
-                            <summary>How does Ravi understand my system without copying data?</summary>
-                            <p>Ravi ingests metadata only: table names, schemas, row counts, query plans, and repository context. It never pulls customer rows or secrets, so you get architectural insight without sharing production data.</p>
+                            <summary>What is Ravi and how is it different from other code review tools?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Ravi is an AI-powered architectural reviewer that acts like a senior architect on every pull request. Unlike other code reviewers that focus on code style or basic static analysis, Ravi understands your entire system architecture: database schemas, API contracts, data flow patterns, and business logic. It catches issues like N+1 queries, missing indexes, breaking API changes, and architectural inconsistencies that other tools miss because they lack context about your production system.</p>
+                                </div>
+                            </div>
                         </details>
 
                         <details class="faq-item">
-                            <summary>What languages and databases are supported today?</summary>
-                            <p>We focus on teams running PostgreSQL or MySQL talking to back ends written in Ruby, Python, TypeScript/Node.js, or Go. Additional languages and datastores are on our roadmap, so reach out if you have a specific stack.</p>
+                            <summary>How does Ravi understand my system without storing data?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Ravi analyzes metadata only, never actual customer data. This includes database table names, column schemas, indexes, foreign key relationships, row counts, and query execution plans. By combining this metadata with your code changes in real-time, Ravi can identify architectural issues like missing joins, inefficient queries, or schema mismatches without ever seeing or storing a single row of production data. All analysis happens during the PR review and nothing is retained afterward.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>How long does setup take?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Most teams are up and running in under an hour. The process involves three steps: (1) Install the Ravi GitHub App and grant access to your repositories, (2) Connect your PostgreSQL database with read-only credentials for metadata access, and (3) Configure which repositories or PR patterns should trigger architectural reviews. We provide guided setup and can assist over a call if needed.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Do I need to change my development workflow?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>No. Ravi integrates seamlessly into your existing GitHub pull request workflow. Developers continue creating PRs as usual, and Ravi's architectural review appears as a check alongside your existing CI/CD pipeline. There's no new interface to learn, no additional steps to remember, and no context switching required.</p>
+                                </div>
+                            </div>
                         </details>
 
                         <details class="faq-item">
                             <summary>Will Ravi slow our PR workflow down?</summary>
-                            <p>No. Reviews arrive in parallel with your existing CI checks. Ravi skips style nits and only flags issues that will affect production behaviour, so engineers stay in flow while still getting architect-level feedback.</p>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>No. Ravi's reviews run in parallel with your existing CI checks and typically complete within 2-3 minutes for most PRs. The system is designed to be non-blocking so engineers get feedback quickly while still in their development context. More importantly, Ravi focuses only on architectural and production-impacting issues, not style nitpicks, so the feedback is always actionable and worth the review time.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>What size team or codebase is Ravi best for?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Ravi adds value to teams of all sizes. Small teams benefit from having a senior architect's perspective on every PR without needing to hire expensive talent, preventing technical debt from accumulating early. Growing teams use Ravi to maintain code quality as they scale and onboard new engineers faster. Large organizations leverage Ravi to preserve institutional knowledge and ensure consistency across multiple teams and services. Architectural issues that slip through code review cost time and money regardless of your team size. Ravi catches them before they reach production.</p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="faq-group" id="faq-technical" data-chapter-section>
+                    <h2>Technical Details</h2>
+                    <div class="faq-grid">
+                        <details class="faq-item">
+                            <summary>What languages and databases are supported today?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>We currently support the following programming languages: Python, JavaScript, TypeScript, Go, Java, Kotlin, Scala, Ruby, PHP, C#, Rust, C++, C, Swift, and SQL. For databases, we support PostgreSQL. Additional databases (MySQL, MongoDB, etc.) are on our roadmap. If you have a specific stack requirement, reach out to discuss your needs.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>What types of issues does Ravi catch?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Ravi identifies architectural and performance issues that impact production systems: N+1 query patterns, missing database indexes, inefficient joins, breaking API changes, data consistency problems, security vulnerabilities in data access patterns, race conditions, improper error handling that could cause data loss, and schema migrations that might cause downtime. It focuses on issues that affect reliability, performance, and maintainability at scale.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Can Ravi review database migrations?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Absolutely. Ravi excels at migration review by analyzing schema changes against your current database structure and codebase usage. It identifies issues like missing rollback strategies, operations that will lock tables during deployment, column removals that will break deployed code, and index additions that might time out on large tables. This prevents the common migration failures that cause production incidents.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Does Ravi integrate with GitLab, Bitbucket, or other version control systems?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Currently, Ravi integrates with GitHub. GitLab and Bitbucket support are on our roadmap based on customer demand. If you're using a different VCS, contact us to discuss your requirements and timeline.</p>
+                                </div>
+                            </div>
                         </details>
                     </div>
                 </div>
 
                 <div class="faq-group" id="faq-security" data-chapter-section>
-                    <h2>Security & Access</h2>
+                    <h2>Security & Privacy</h2>
                     <div class="faq-grid">
                         <details class="faq-item">
-                            <summary>Can I control what context Ravi sees?</summary>
-                            <p>Yes. You decide which repositories and databases are connected. Access is read-only, scoped through service accounts, and can be revoked at any time.</p>
+                            <summary>What data does Ravi access?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Ravi accesses repository code and PR diffs from GitHub, and database metadata including schema definitions, table statistics, indexes, and query execution plans. Ravi never accesses or stores actual customer data from your database. We analyze your code and database structure to provide architectural review, but we don't retain any of this information after the review is complete.</p>
+                                </div>
+                            </div>
                         </details>
 
                         <details class="faq-item">
-                            <summary>How long does setup take?</summary>
-                            <p>Most teams finish onboarding in under an hour: install the GitHub app, point Ravi at your primary database (metadata-only), and select which PRs should run architectural checks.</p>
+                            <summary>Does Ravi store my code or data?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>No. Ravi does not store your code, database metadata, or any customer data. We analyze your code and database structure in real-time during PR reviews and discard all information immediately after providing feedback. Your code never leaves the secure review process and is never persisted to our systems.</p>
+                                </div>
+                            </div>
                         </details>
-                    </div>
-                </div>
 
-                <div class="faq-group" id="faq-support" data-chapter-section>
-                    <h2>Support</h2>
-                    <div class="faq-grid">
                         <details class="faq-item">
-                            <summary>What if I need help convincing security or leadership?</summary>
-                            <p>We provide a short security brief plus sample PR reviews you can share internally. Email <a href="mailto:team@ravi.app">team@ravi.app</a> and we'll send the packet.</p>
+                            <summary>Can I control what Ravi has access to?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Yes. You have granular control over Ravi's access. Choose which specific repositories to connect and which databases to include. All database access is read-only and limited to metadata queries, never actual row data. You can revoke access instantly at any time by removing the GitHub App or database credentials.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>How do you handle sensitive code or proprietary algorithms?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Your code is analyzed in real-time and is never stored or retained. We do not train our models on your code or use your data for any purpose other than providing the immediate architectural review. All data transmission is encrypted in transit using TLS 1.3.</p>
+                                </div>
+                            </div>
                         </details>
                     </div>
                 </div>

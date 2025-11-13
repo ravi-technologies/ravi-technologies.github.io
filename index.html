@@ -48,11 +48,8 @@
         <nav class="chapter-nav" aria-label="Page chapters">
             <div class="container">
                 <a href="#problem" class="chapter-link" data-chapter-link="problem">Problem</a>
-                <a href="#objections" class="chapter-link" data-chapter-link="objections">Skeptics</a>
-                <a href="#why-ravi" class="chapter-link" data-chapter-link="why-ravi">System Context</a>
-                <a href="#capabilities" class="chapter-link" data-chapter-link="capabilities">Capabilities</a>
+                <a href="#what-is-ravi" class="chapter-link" data-chapter-link="what-is-ravi">What is Ravi</a>
                 <a href="#trust" class="chapter-link" data-chapter-link="trust">Trust</a>
-                <a href="#teams" class="chapter-link" data-chapter-link="teams">Teams</a>
                 <a href="#resources" class="chapter-link" data-chapter-link="resources">Resources</a>
             </div>
         </nav>
@@ -61,87 +58,20 @@
             <div class="container">
                 <div class="chapter-block" id="problem" data-chapter-section>
                     <h2>The Problem</h2>
-                    <p class="section-intro">Code runs on living systems: databases with millions of rows, APIs under real load, infrastructure tuned for today’s customers.</p>
+                    <div class="problem-narrative">
+                        <p>Code runs on living systems: databases with millions of rows, APIs under real load, infrastructure tuned for today's customers.</p>
 
-                    <div class="problem-grid">
-                        <div class="problem-card">
-                            <h3>Code Review Only Sees Code</h3>
-                            <p>Traditional reviewers stop at syntax and patterns. They deliver the same advice whether you're serving 100 or 100,000 users, so scale-specific failures slip through.</p>
-                        </div>
-                        <div class="problem-card">
-                            <h3>Production Incidents Come From Context</h3>
-                            <p>Outages happen because loops fan out across millions of rows, missing indexes stretch queries into seconds, and schema tweaks ripple through forgotten code paths; these issues are only visible with full system context.</p>
-                        </div>
+                        <p><strong>Code Review Only Sees Code.</strong> Traditional reviewers stop at syntax and patterns. They deliver the same advice whether you're serving 100 or 100,000 users, so scale-specific failures slip through.</p>
+
+                        <p><strong>Production Incidents Come From Context.</strong> Outages happen because loops fan out across millions of rows, missing indexes stretch queries into seconds, and schema tweaks ripple through forgotten code paths. These issues are only visible with full system context.</p>
                     </div>
                 </div>
 
-                <div class="chapter-cta">
-                    <a href="examples.html#scale-advice" class="btn-primary">See a full review</a>
-                </div>
+                <!-- What is Ravi -->
+                <div class="chapter-block" id="what-is-ravi" data-chapter-section>
+                    <h2>What is Ravi</h2>
+                    <p class="section-intro">Ravi is your team's resident architect, reviewing code with full system context on every pull request. Software engineering isn't about writing textbook-perfect code. It's about making reasonable trade-offs given your constraints. Ravi helps you make the right choices for your scale and stage without compromising on velocity.</p>
 
-                <div class="objections-section chapter-block" id="objections" data-chapter-section>
-                    <h3>"But I don't need this..."</h3>
-                    <div class="objection-grid">
-                        <div class="objection-card">
-                            <h4>"My senior engineers review everything"</h4>
-                            <p>Even senior reviewers can't simulate production scale on every PR. Let them focus on design while Ravi automates the mechanical query and schema checks.</p>
-                        </div>
-                        <div class="objection-card">
-                            <h4>"We have good test coverage"</h4>
-                            <p>Tests run on empty fixtures. Production holds tens of millions of rows. Performance issues only appear when the real dataset and concurrency are considered.</p>
-                        </div>
-                        <div class="objection-card">
-                            <h4>"We catch issues in staging"</h4>
-                            <p>Staging finds problems after days of work. Catching architectural mistakes inside the PR keeps fixes cheap and momentum high.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chapter-cta">
-                    <a href="mailto:team@ravi.app?subject=Ravi%20Questions" class="btn-secondary">Talk to us</a>
-                </div>
-
-                <div class="chapter-block" id="why-ravi" data-chapter-section>
-                    <h2>Why Ravi is Different</h2>
-                    <p class="section-intro">Most code reviewers only see patterns in your code. Ravi sees your entire system and gives advice that actually works for your scale.</p>
-
-                    <!-- Comparison Table -->
-                    <div class="comparison-table">
-                        <div class="comparison-row comparison-header">
-                            <div class="comparison-cell"></div>
-                            <div class="comparison-cell">Code-Only Reviewers</div>
-                            <div class="comparison-cell highlight">Ravi (Architectural Intelligence)</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="comparison-cell feature-name">What They See</div>
-                            <div class="comparison-cell">Code in the diff</div>
-                            <div class="comparison-cell highlight">Code + database schema + table sizes + production constraints</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="comparison-cell feature-name">Advice Quality</div>
-                            <div class="comparison-cell">Generic best practices (same for everyone)</div>
-                            <div class="comparison-cell highlight">Calibrated to YOUR actual scale and constraints</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="comparison-cell feature-name">Example: High-Risk Migration</div>
-                            <div class="comparison-cell">"Adds column with default"</div>
-                            <div class="comparison-cell highlight">"480GB table rewrite will lock for 11m. Roll out column in phases."</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="comparison-cell feature-name">Scale Understanding</div>
-                            <div class="comparison-cell">❌ Same advice whether you're at 1K users or 1M</div>
-                            <div class="comparison-cell highlight">✅ Different advice for different scales</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="comparison-cell feature-name">Production Focus</div>
-                            <div class="comparison-cell">Style nits + theoretical concerns</div>
-                            <div class="comparison-cell highlight">Only flags issues with tangible, material impact</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Architect Positioning Cards -->
-                <div class="roadmap-section">
                     <div class="roadmap-grid roadmap-grid-three">
                         <div class="roadmap-card architect-card">
                             <div class="roadmap-icon">
@@ -180,118 +110,39 @@
                     </div>
                 </div>
 
-                <!-- How It Works -->
-                <div class="capability-highlight chapter-block" id="capabilities" data-chapter-section>
-                    <div class="capability-content">
-                        <h3>Architectural Reviews on Every Pull Request</h3>
-                        <p class="capability-lead">Ravi analyzes your code changes alongside your production system to catch issues that will actually impact reliability and performance.</p>
-                        <div class="capability-list">
-                            <div class="capability-item">
-                                <h4>System-level understanding</h4>
-                                <p>Ravi reviews code in the context of your database schema, table sizes, and production constraints, not just abstract patterns.</p>
-                            </div>
-                            <div class="capability-item">
-                                <h4>Production-impact focus</h4>
-                                <p>Only issues with tangible, material impact make it into the review so your engineers never chase noise.</p>
-                            </div>
-                            <div class="capability-item">
-                                <h4>Architectural guidance</h4>
-                                <p>The review explains trade-offs and suggests alternatives the way a pragmatic senior architect would, grounded in your workload.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="capability-visual">
-                        <div class="stat-card">
-                            <div class="stat-number">Systems<br>Not Code</div>
-                            <div class="stat-label">Reviews your entire architecture, not just the diff</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">Metadata<br>Only</div>
-                            <div class="stat-label">Schema, stats, and query plans. Never your data rows</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chapter-cta">
-                    <a href="examples.html" class="btn-primary">See Real Examples</a>
-                </div>
-
                 <div class="chapter-block" id="trust" data-chapter-section>
                 <h2>Trust & Security</h2>
                 <p class="section-intro">Your data security is our priority. Ravi is designed from the ground up with privacy and security at its core.</p>
 
-                <div class="trust-grid">
-                    <div class="trust-card">
-                        <div class="trust-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="8" y="12" width="32" height="28" rx="2" stroke="#00D4FF" stroke-width="2"/>
-                                <path d="M16 12V8C16 5.79086 17.7909 4 20 4H28C30.2091 4 32 5.79086 32 8V12" stroke="#00D4FF" stroke-width="2"/>
-                                <circle cx="24" cy="26" r="3" fill="#00D4FF"/>
-                                <path d="M24 29V34" stroke="#00D4FF" stroke-width="2"/>
-                            </svg>
+                <div class="trust-checklist">
+                    <div class="trust-item">
+                        <span class="trust-check">✓</span>
+                        <div class="trust-content">
+                            <h4>Metadata Only</h4>
+                            <p>Ravi accesses only database metadata: table names, columns, indexes, row counts. Never your actual data rows or customer PII.</p>
                         </div>
-                        <h4>Metadata Only</h4>
-                        <p>Ravi accesses only database metadata: table names, columns, indexes, row counts. Never your actual data rows or customer PII.</p>
                     </div>
-                    <div class="trust-card">
-                        <div class="trust-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M24 4L8 12V22C8 32 14 40 24 44C34 40 40 32 40 22V12L24 4Z" stroke="#7C5CFF" stroke-width="2"/>
-                                <path d="M18 24L22 28L30 18" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                    <div class="trust-item">
+                        <span class="trust-check">✓</span>
+                        <div class="trust-content">
+                            <h4>Encrypted Connections</h4>
+                            <p>All database connections use TLS encryption. Credentials are encrypted at rest using industry-standard encryption.</p>
                         </div>
-                        <h4>Encrypted Connections</h4>
-                        <p>All database connections use TLS encryption. Credentials are encrypted at rest using industry-standard encryption.</p>
                     </div>
-                    <div class="trust-card">
-                        <div class="trust-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="24" r="16" stroke="#8B5FFF" stroke-width="2"/>
-                                <path d="M24 16V24L30 28" stroke="#8B5FFF" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                    <div class="trust-item">
+                        <span class="trust-check">✓</span>
+                        <div class="trust-content">
+                            <h4>Transient Processing</h4>
+                            <p>Your code is processed transiently during analysis and immediately discarded. We never store your source code or customer data.</p>
                         </div>
-                        <h4>Transient Processing</h4>
-                        <p>Your code is processed transiently during analysis and immediately discarded. We never store your source code or customer data.</p>
                     </div>
-                    <div class="trust-card">
-                        <div class="trust-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="6" y="6" width="36" height="36" rx="4" stroke="#00D4FF" stroke-width="2"/>
-                                <path d="M16 24H32M24 16V32" stroke="#00D4FF" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                    <div class="trust-item">
+                        <span class="trust-check">✓</span>
+                        <div class="trust-content">
+                            <h4>Read-Only Access</h4>
+                            <p>Database permissions are strictly read-only for metadata catalogs. No write operations, schema changes, or data access possible.</p>
                         </div>
-                        <h4>Read-Only Access</h4>
-                        <p>Database permissions are strictly read-only for metadata catalogs. No write operations, schema changes, or data access possible.</p>
                     </div>
-                </div>
-                <div class="trust-cta">
-                    <p>Learn more about our security practices and privacy commitment</p>
-                    <a href="https://ai.ravi.app/privacy/" class="btn-secondary">Privacy & Security →</a>
-                </div>
-                </div>
-
-                <div class="chapter-block" id="teams" data-chapter-section>
-                <h2>Who This Is For</h2>
-                <div class="audience-grid">
-                    <div class="audience-card">
-                        <h4>Engineering Leaders</h4>
-                        <p>Scale architectural expertise across all your teams without hiring more senior engineers. Ravi ensures every PR gets senior-level review on performance and database issues.</p>
-                    </div>
-                    <div class="audience-card">
-                        <h4>Startups Scaling Up</h4>
-                        <p>Get advice calibrated to YOUR stage, not over-engineered solutions built for Google-scale. Move fast without accumulating technical debt that will hurt you later.</p>
-                    </div>
-                    <div class="audience-card">
-                        <h4>Senior Engineers</h4>
-                        <p>You can't manually check query costs, execution plans, and index validation on every PR. Ravi does meticulous instrumentation analysis before code ships, catching what's humanly impossible to verify manually.</p>
-                    </div>
-                    <div class="audience-card">
-                        <h4>Teams Shipping Fast</h4>
-                        <p>Catch production-breaking issues in the PR, when they're cheap to fix, not in staging or production when they're expensive to unwind. Ship with confidence.</p>
-                    </div>
-                </div>
-                <div class="chapter-cta">
-                    <a href="https://ai.ravi.app" class="btn-primary">Get Started Free</a>
                 </div>
                 </div>
 
@@ -308,9 +159,6 @@
                         <p>Learn how Ravi accesses only metadata, processes data transiently, and never touches customer data.</p>
                         <a href="https://ai.ravi.app/privacy/" class="learn-more-link">Privacy policy →</a>
                     </div>
-                </div>
-                <div class="chapter-cta inline">
-                    <a href="mailto:team@ravi.app?subject=Rollout%20Plan" class="btn-secondary">Talk to our team</a>
                 </div>
                 </div>
             </div>

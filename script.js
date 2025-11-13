@@ -339,4 +339,23 @@ document.addEventListener('DOMContentLoaded', () => {
             initDiffBlock(block);
         }
     });
+
+    // FAQ card click handling - make entire card clickable
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+            // Don't trigger if clicking on a link inside the FAQ
+            if (event.target.tagName === 'A') {
+                return;
+            }
+
+            // Find the summary element and toggle the details
+            const summary = item.querySelector('summary');
+            if (summary && event.target !== summary) {
+                // If clicked anywhere except the summary, toggle the open state
+                event.preventDefault();
+                item.open = !item.open;
+            }
+        });
+    });
 });

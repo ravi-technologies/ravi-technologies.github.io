@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples - Ravi Architectural Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">Ravi</a>
+                <div class="nav-links">
+                    <a href="examples.html">Examples</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="https://ai.ravi.app/docs/">Docs</a>
+                    <a href="https://ai.ravi.app/privacy/">Privacy</a>
+                    <a href="https://ai.ravi.app" class="btn-primary">Get Started</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero examples-hero">
+            <div class="container">
+                <h1>See Architectural Intelligence in Action</h1>
+                <p class="hero-subtitle">Real examples showing how Ravi reviews code with full system context: your database schema, table sizes, query patterns, and production scale.</p>
+            </div>
+        </section>
+
+        <nav class="chapter-nav" aria-label="Examples chapters">
+            <div class="container">
+                <a href="#scale-advice" class="chapter-link" data-chapter-link="scale-advice">Scale Advice</a>
+                <a href="#over-engineering" class="chapter-link" data-chapter-link="over-engineering">Over-Engineering</a>
+                <a href="#performance" class="chapter-link" data-chapter-link="performance">Performance</a>
+                <a href="#breaking-changes" class="chapter-link" data-chapter-link="breaking-changes">Breaking Changes</a>
+            </div>
+        </nav>
+
+        <section class="examples-content">
+            <div class="container">
+                <div class="examples-layout">
+                    <aside class="chapter-index" aria-label="Example index">
+                        <div class="index-group">
+                            <p class="index-group-label">Scale Advice</p>
+                            <a href="#example-caching" class="example-link" data-chapter-link="example-caching">
+                                <span class="example-link-title">Scale-based caching</span>
+                                <span class="example-link-tags"><span>Scale</span><span>Python</span><span>Perf</span></span>
+                            </a>
+                            <a href="#example-migration" class="example-link" data-chapter-link="example-migration">
+                                <span class="example-link-title">Large table migrations</span>
+                                <span class="example-link-tags"><span>Python</span><span>SQL</span><span>Risk</span></span>
+                            </a>
+                            <a href="#example-pagination" class="example-link" data-chapter-link="example-pagination">
+                                <span class="example-link-title">Pagination patterns</span>
+                                <span class="example-link-tags"><span>Python</span><span>API</span><span>Scale</span></span>
+                            </a>
+                            <a href="#example-read-replicas" class="example-link" data-chapter-link="example-read-replicas">
+                                <span class="example-link-title">Read replica decisions</span>
+                                <span class="example-link-tags"><span>Python</span><span>DB</span><span>Ops</span></span>
+                            </a>
+                            <a href="#example-background-jobs" class="example-link" data-chapter-link="example-background-jobs">
+                                <span class="example-link-title">Async processing</span>
+                                <span class="example-link-tags"><span>Python</span><span>Queues</span></span>
+                            </a>
+                        </div>
+
+                        <div class="index-group">
+                            <p class="index-group-label">Over-Engineering</p>
+                            <a href="#example-sharding" class="example-link" data-chapter-link="example-sharding">
+                                <span class="example-link-title">Database sharding</span>
+                                <span class="example-link-tags"><span>Python</span><span>Arch</span><span>DB</span></span>
+                            </a>
+                        </div>
+
+                        <div class="index-group">
+                            <p class="index-group-label">Performance</p>
+                            <a href="#example-missing-index-scale" class="example-link" data-chapter-link="example-missing-index-scale">
+                                <span class="example-link-title">Missing indexes</span>
+                                <span class="example-link-tags"><span>Python</span><span>DB</span></span>
+                            </a>
+                            <a href="#example-rate-limits" class="example-link" data-chapter-link="example-rate-limits">
+                                <span class="example-link-title">Rate limiting</span>
+                                <span class="example-link-tags"><span>Python</span><span>API</span><span>Traffic</span></span>
+                            </a>
+                            <a href="#example-async" class="example-link" data-chapter-link="example-async">
+                                <span class="example-link-title">Queue vs inline</span>
+                                <span class="example-link-tags"><span>Go</span><span>Scale</span><span>Workers</span></span>
+                            </a>
+                            <a href="#example-connection-pool" class="example-link" data-chapter-link="example-connection-pool">
+                                <span class="example-link-title">Pool sizing</span>
+                                <span class="example-link-tags"><span>JavaScript</span><span>Infra</span><span>DB</span></span>
+                            </a>
+                            <a href="#example-django-prefetch" class="example-link" data-chapter-link="example-django-prefetch">
+                                <span class="example-link-title">N+1 queries</span>
+                                <span class="example-link-tags"><span>Python</span><span>ORM</span></span>
+                            </a>
+                            <a href="#example-sqlalchemy-index" class="example-link" data-chapter-link="example-sqlalchemy-index">
+                                <span class="example-link-title">Composite indexes</span>
+                                <span class="example-link-tags"><span>Python</span><span>DB</span></span>
+                            </a>
+                            <a href="#example-batch" class="example-link" data-chapter-link="example-batch">
+                                <span class="example-link-title">Batch updates</span>
+                                <span class="example-link-tags"><span>Go</span><span>Workers</span></span>
+                            </a>
+                            <a href="#example-pool-limits" class="example-link" data-chapter-link="example-pool-limits">
+                                <span class="example-link-title">Connection limits</span>
+                                <span class="example-link-tags"><span>Go</span><span>Infra</span><span>DB</span></span>
+                            </a>
+                            <a href="#example-pagination-sql" class="example-link" data-chapter-link="example-pagination-sql">
+                                <span class="example-link-title">Slow pagination</span>
+                                <span class="example-link-tags"><span>JavaScript</span><span>DB</span></span>
+                            </a>
+                        </div>
+
+                        <div class="index-group">
+                            <p class="index-group-label">Breaking Changes</p>
+                            <a href="#example-column-drop" class="example-link" data-chapter-link="example-column-drop">
+                                <span class="example-link-title">Dropping columns</span>
+                                <span class="example-link-tags"><span>Python</span><span>Schema</span></span>
+                            </a>
+                            <a href="#example-lazy-loading" class="example-link" data-chapter-link="example-lazy-loading">
+                                <span class="example-link-title">Lazy loading</span>
+                                <span class="example-link-tags"><span>JavaScript</span><span>ORM</span></span>
+                            </a>
+                        </div>
+                    </aside>
+                    <div class="examples-stack">
+                        <div class="example-display" id="example-display"></div>
+                    </div>
+                </div>
+
+                <div class="example-reservoir" aria-hidden="true" hidden>
+
+<div class="detailed-example" id="example-caching" data-chapter-section>
+                                            <h3>Scale-Based Caching Decisions</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-python"># app/controllers/products.py
+def featured_products():
+    return (
+        Product.query.filter_by(featured=True)
+        .order_by(Product.priority.desc())
+        .limit(10)
+        .all()
+    )</code></pre>
+                                                </div>
+                                            </div>
+
+                                            <div class="interactive-diff" aria-label="Scale-aware caching guidance">
+                                                <div class="interactive-diff-header">
+                                                    <h3>Same handler, different advice</h3>
+                                                    <p>Toggle the scenario to see how Ravi tailors guidance for the exact traffic you're running.</p>
+                                                </div>
+                                                <p class="comparison-hint"><p class="comparison-hint">Pick your scale to update the review:</p></p>
+                                                <div class="comparison-controls" role="tablist">
+                                                    <button class="comparison-toggle active" data-scenario="examples-startup" aria-pressed="true" type="button">5K users</button>
+                                                    <button class="comparison-toggle" data-scenario="examples-hypergrowth" aria-pressed="false" type="button">500K users</button>
+                                                </div>
+                                                <div class="diff-pair active" data-scenario="examples-startup">
+                                                    <div class="diff-panel review">
+                                                        <div class="diff-panel-label review-label">Ravi review</div>
+                                                        <h5>At 5K users</h5>
+                                                        <pre><code class="language-python">✅ Ship it
+# products table: 247 rows
+# Endpoint: ~120 requests/hour
+# Query time: 2-4ms
+
+# Recommendation:
+# Skip Redis + invalidation work.
+# Revisit when rows > 100K or latency spikes.</code></pre>
+                                                        <p class="diff-note">Ravi optimizes for speed of delivery when the dataset is tiny and mostly static.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="diff-pair" data-scenario="examples-hypergrowth">
+                                                    <div class="diff-panel review">
+                                                        <div class="diff-panel-label review-label">Ravi review</div>
+                                                        <h5>At 500K users</h5>
+                                                        <pre><code class="language-python">⚠️ Hot path: 1,950 req/hour
+# products table: 125K rows
+# P95 latency: 45ms
+
+# Suggestion:
+def featured_products():
+    return cache.get_or_set(
+        "featured_products",
+        lambda: Product.query
+            .options(load_only(Product.id, Product.name, Product.price))
+            .filter_by(featured=True)
+            .order_by(Product.priority.desc())
+            .limit(10)
+            .all(),
+        ttl=120,
+)</code></pre>
+                                                        <p class="diff-note">Same code path, but Ravi adds caching once it materially reduces database load.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <div class="example-takeaway">
+                                            <strong>Why this matters:</strong> Code-only reviewers either always recommend caching (over-engineering) or never mention it (under-engineering). Ravi knows when optimization makes sense based on YOUR data.
+                                            </div>
+                                        </div>
+
+<div class="detailed-example" id="example-migration" data-chapter-section>
+                                        <h3>Scale-Aware Migration Safety</h3>
+                                        <div class="example-comparison">
+                                            <div class="code-block">
+                                                <h4>Your Migration</h4>
+                                                <pre><code class="language-python"># migrations/versions/20250124_add_archived.py
+def upgrade():
+    op.add_column(
+        "sessions",
+        sa.Column(
+            "archived",
+            sa.Boolean(),
+            nullable=False,
+            server_default=sa.false(),
+        ),
+)</code></pre>
+                                            </div>
+                                        </div>
+
+                                        <div class="interactive-diff" aria-label="Phased migration guidance">
+                                            <div class="interactive-diff-header">
+                                                <h3>Same migration, different risk profile</h3>
+                                                <p>Fill the same column on a 10K-row table vs. a 10M-row table and the rollout plan changes completely.</p>
+                                            </div>
+                                            <p class="comparison-hint">Pick your scale to update the review:</p>
+                                            <div class="comparison-controls" role="tablist">
+                                                <button class="comparison-toggle active" data-scenario="migration-small" aria-pressed="true" type="button">10K rows</button>
+                                                <button class="comparison-toggle" data-scenario="migration-large" aria-pressed="false" type="button">10M rows</button>
+                                            </div>
+                                            <div class="diff-pair active" data-scenario="migration-small">
+                                                <div class="diff-panel review">
+                                                    <div class="diff-panel-label review-label">Ravi review</div>
+                                                    <h5>At 10K rows</h5>
+                                                    <pre><code class="language-python">✅ Ship it during maintenance
+# sessions table: 10K rows / <1 GB
+# Lock window: < 2 seconds
+# Writes: ~20 req/s
+
+# Recommendation:
+# Run migration in standard maintenance window.</code></pre>
+                                                    <p class="diff-note">Other tools already warn about potential locks; Ravi confirms real impact is negligible at this scale so you can proceed confidently.</p>
+                                                </div>
+                                            </div>
+                                            <div class="diff-pair" data-scenario="migration-large">
+                                                <div class="diff-panel review">
+                                                    <div class="diff-panel-label review-label">Ravi review</div>
+                                                    <h5>At 10M rows</h5>
+                                                    <pre><code class="language-python">🚨 Safe rollout required
+# sessions table: 10M rows / 480 GB
+# ALTER TABLE rewrite lock: ~11 minutes
+# Peak writes: 320 req/s (would queue/fail)
+
+# Suggestion:
+def upgrade():
+    op.add_column(
+        "sessions",
+        sa.Column("archived", sa.Boolean(), nullable=True),
+    )
+
+# Background job: backfill in 100K-row batches
+
+# Follow-up migration:
+def upgrade():
+    op.alter_column(
+        "sessions",
+        "archived",
+        nullable=False,
+        server_default=sa.false(),
+)</code></pre>
+                                                    <p class="diff-note">Competitors flag “lock risk” generically. Ravi calculates the lock duration using your actual 480 GB dataset and hands you a phased rollout.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="example-takeaway">
+                                            <strong>Why this matters:</strong> It’s easy to ignore “might lock” warnings when the table is small. Ravi knows your session table actually holds 10M rows and quantifies the lock window so you plan the migration correctly.</div>
+                                    </div>
+
+<div class="detailed-example" id="example-pagination" data-chapter-section>
+                                        <h3>Pagination Strategy at Scale</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-python"># api/views.py
+@app.route('/api/transactions')
+def list_transactions():
+    page = request.args.get('page', 1, type=int)
+    per_page = 50
+
+    transactions = Transaction.query\
+        .order_by(Transaction.created_at.desc())\
+        .offset((page - 1) * per_page)\
+        .limit(per_page)\
+        .all()
+
+return jsonify([t.to_dict() for t in transactions])</code></pre>
+                                                </div>
+                                            </div>
+                                            <div class="interactive-diff" aria-label="Pagination strategy comparison">
+                                                <div class="interactive-diff-header">
+                                                    <h3>Offset vs cursor pagination</h3>
+                                                    <p>Same view function, different data sizes. Ravi knows when to keep it simple and when to switch patterns.</p>
+                                                </div>
+                                                <p class="comparison-hint">Pick your scale to update the review:</p>
+                                                <div class="comparison-controls" role="tablist">
+                                                    <button class="comparison-toggle active" data-scenario="pagination-small" aria-pressed="true" type="button">8K rows</button>
+                                                    <button class="comparison-toggle" data-scenario="pagination-large" aria-pressed="false" type="button">5M rows</button>
+                                                </div>
+                                                <div class="diff-pair active" data-scenario="pagination-small">
+                                                    <div class="diff-panel review">
+                                                        <div class="diff-panel-label review-label">Ravi review</div>
+                                                        <h5>At 8K rows</h5>
+                                                        <pre><code class="language-python">✅ Keep offset pagination
+# transactions table: 8,247 rows
+# Deepest offset (page 100): 5,000 rows
+# Query time: 8-12ms
+
+# Rationale:
+# - Cursor adds client complexity
+# - Random page jumps still needed
+# - Current performance is fine</code></pre>
+                                                        <p class="diff-note">Ravi avoids pushing complex patterns when the dataset is tiny and requests are light.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="diff-pair" data-scenario="pagination-large">
+                                                    <div class="diff-panel review">
+                                                        <div class="diff-panel-label review-label">Ravi review</div>
+                                                        <h5>At 5M rows</h5>
+                                                        <pre><code class="language-python">⚠️ Switch to cursor pagination
+# transactions: 5.2M rows
+# Page 100: 850ms (skipping 5K rows)
+# Page 500: 4.2s (timeout risk)
+# 15% of traffic goes past page 100
+
+# Suggestion:
+def list_transactions():
+    cursor = request.args.get("cursor", type=int)
+    query = Transaction.query.order_by(Transaction.created_at.desc(), Transaction.id.desc())
+    if cursor:
+        query = query.filter(Transaction.id < cursor)
+    rows = query.limit(50).all()
+return {"data": [r.to_dict() for r in rows], "next_cursor": rows[-1].id}</code></pre>
+                                                        <p class="diff-note">Same endpoint, but Ravi sees deep pagination cost and prescribes a cursor strategy to keep latency flat.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="example-takeaway">
+                                                <strong>Why this matters:</strong> Offset pagination is simpler at small scale. Cursor pagination adds complexity but becomes necessary at large scale. Ravi tells you which pattern fits YOUR data size.
+                                            </div>
+                                        </div>
+
+<div class="detailed-example" id="example-read-replicas" data-chapter-section>
+                                            <h3>When to Add Read Replicas</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-python"># config/database.py
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+# All reads and writes go to primary database
+db = SQLAlchemy(app)
+
+# Example query - analytics dashboard
+@app.route('/api/analytics/sales')
+def sales_analytics():
+    # Heavy read query: aggregating millions of rows
+    results = db.session.execute("""
+        SELECT DATE(created_at) as date,
+               COUNT(*) as orders,
+               SUM(total) as revenue
+        FROM orders
+        WHERE created_at > NOW() - INTERVAL '90 days'
+        GROUP BY DATE(created_at)
+        ORDER BY date DESC
+    """)
+return jsonify([dict(r) for r in results])</code></pre>
+                                                </div>
+                                            </div>
+                                            <div class="interactive-diff" aria-label="Read replica decision helper">
+                                                <div class="interactive-diff-header">
+                                                    <h3>Do you need read replicas yet?</h3>
+                                                    <p>Ravi looks at real traffic, CPU, and read/write ratios before suggesting replica infrastructure.</p>
+                                                </div>
+                                                <p class="comparison-hint">Pick your scale to update the review:</p>
+                                                <div class="comparison-controls" role="tablist">
+                                                    <button class="comparison-toggle active" data-scenario="replica-low" aria-pressed="true" type="button">100 req/min</button>
+                                                    <button class="comparison-toggle" data-scenario="replica-high" aria-pressed="false" type="button">2K req/min</button>
+                                                </div>
+                                                <div class="diff-pair active" data-scenario="replica-low">
+                                                    <div class="diff-panel review">
+                                                        <div class="diff-panel-label review-label">Ravi review</div>
+                                                        <h5>At 100 req/min</h5>
+                                                        <pre><code class="language-python">✅ Stay on single primary
+# 100 req/min, 70% reads
+# DB CPU: 15-25%
+# Analytics runs: 5/hour
+
+# Reasoning:
+# - Replica cost + ops > benefits
+# - Lag + routing complexity unnecessary
+# - Primary easily absorbs load</code></pre>
+                                                        <p class="diff-note">Ravi keeps you focused on product work instead of premature infra.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="diff-pair" data-scenario="replica-high">
+                                                    <div class="diff-panel review">
+                                                        <div class="diff-panel-label review-label">Ravi review</div>
+                                                        <h5>At 2K req/min</h5>
+                                                        <pre><code class="language-python">⚠️ Add read replica
+# 2K req/min, 85% reads
+# CPU: 75-90% during peaks
+# Analytics query: 200/hour
+# Checkout writes slowed to 120ms
+
+# Suggestion:
+db_replica = SQLAlchemy(app, bind_key="replica")
+
+@app.route("/api/analytics/sales")
+def sales_analytics():
+return db_replica.session.execute(ANALYTICS_SQL)</code></pre>
+                                                        <p class="diff-note">Ravi detects that reads are starving writes and prescribes routing heavy queries to a replica with proper timeouts.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="example-takeaway">
+                                                <strong>Why this matters:</strong> Read replicas add infrastructure complexity and cost that's not justified at low traffic. At high traffic with read-heavy workload, they're essential to keep writes fast and prevent database bottlenecks.
+                                            </div>
+                                        </div>
+
+<div class="detailed-example" id="example-background-jobs" data-chapter-section>
+                                            <h3>Inline vs Background Processing</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-python"># app/controllers/reports.py
+from flask import send_file
+
+@app.route('/api/reports/generate')
+def generate_report():
+    user = current_user()
+
+    # Generate CSV report inline
+    csv_data = GenerateReportService.call(
+        user_id=user.id,
+        start_date=request.args.get('start_date'),
+        end_date=request.args.get('end_date')
+    )
+
+    return send_file(
+        csv_data,
+        download_name=f"report_{date.today()}.csv",
+        as_attachment=True
+)</code></pre>
+                                                </div>
+                                            </div>
+                                            <div class="interactive-diff" aria-label="Report processing strategy">
+                                                <div class="interactive-diff-header">
+                                                    <h3>Inline vs background processing</h3>
+                                                    <p>Ravi looks at request volume, runtime, and concurrency before asking you to build queues.</p>
+                                                </div>
+                                                <p class="comparison-hint">Pick your scale to update the review:</p>
+                                                <div class="comparison-controls" role="tablist">
+                                                    <button class="comparison-toggle active" data-scenario="reports-inline" aria-pressed="true" type="button">20/day</button>
+                                                    <button class="comparison-toggle" data-scenario="reports-async" aria-pressed="false" type="button">500/day</button>
+                                                </div>
+                                                <div class="diff-pair active" data-scenario="reports-inline">
+                                                    <div class="diff-panel review">
+                                                        <div class="diff-panel-label review-label">Ravi review</div>
+                                                        <h5>At 20 reports/day</h5>
+                                                        <pre><code class="language-python">✅ Keep inline
+# 20 reports/day
+# Generation time: 3-5s
+# Internal users tolerate wait
+# Infra for jobs would add Redis, workers, UI</code></pre>
+                                                        <p class="diff-note">Ravi keeps you from building worker fleets when a simple controller is plenty.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="diff-pair" data-scenario="reports-async">
+                                                    <div class="diff-panel review">
+                                                        <div class="diff-panel-label review-label">Ravi review</div>
+                                                        <h5>At 500 reports/day</h5>
+                                                        <pre><code class="language-python">⚠️ Move to background jobs
+# 500 reports/day
+# Runtime: 45s, 500K rows
+# 15 concurrent requests exhaust workers
+# Browsers hit 60s timeout
+
+# Suggestion:
+from celery_app import generate_report_task
+job_id = generate_report_task.delay(...)
+return jsonify({"job_id": job_id, "status": "queued"})</code></pre>
+                                                        <p class="diff-note">Ravi flags the throughput bottleneck and suggests queueing plus email delivery to keep users happy.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="example-takeaway">
+                                            <strong>Why this matters:</strong> Background job infrastructure adds significant complexity. At low usage with fast operations, inline processing is simpler. At high usage with slow operations, background jobs are essential for good UX and system stability.
+                                        </div>
+                                    </div>
+
+<div class="detailed-example" id="example-sharding" data-chapter-section>
+                                            <h3>Avoiding Premature Sharding</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Pull Request</h4>
+                                                    <pre><code class="language-python"># migrations/20250113_create_sharding_system.py
+from alembic import op
+import sqlalchemy as sa
+
+def upgrade():
+    op.create_table('shards',
+        sa.Column('id', sa.Integer(), primary_key=True),
+        sa.Column('name', sa.String(255)),
+        sa.Column('host', sa.String(255)),
+        sa.Column('port', sa.Integer()),
+        sa.Column('database', sa.String(255)),
+        # ... 50 more lines of shard config
+    )
+# ... shard routing logic, connection pooling, etc.</code></pre>
+                                                </div>
+
+                                                <div class="review-block other-tool">
+                                                    <h4>What Other Tools Say</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ Ambitious change: double-check that every shard stays consistent.</p>
+                                                        <p>💡 If you proceed, document the shard routing plan and add indexes on shard metadata.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="review-block ravi-tool">
+                                                    <h4>What Ravi Says</h4>
+                                                    <div class="review-content">
+                                                        <p>🛑 RECONSIDER: Premature Optimization</p>
+                                                        <p><strong>Your Current Scale:</strong></p>
+                                                        <ul>
+                                                            <li>users table: 18K rows</li>
+                                                            <li>orders table: 124K rows</li>
+                                                            <li>Largest table: 500K rows</li>
+                                                            <li>Total DB size: 2.1GB</li>
+                                                        </ul>
+                                                        <p><strong>Sharding Makes Sense At:</strong></p>
+                                                        <ul>
+                                                            <li>10M+ rows in main tables</li>
+                                                            <li>500GB+ database size</li>
+                                                            <li>Clear hot spots or query patterns</li>
+                                                        </ul>
+                                                        <p><strong>You're ~100x away from needing this.</strong></p>
+                                                        <p><strong>Current Bottlenecks:</strong></p>
+                                                        <ul>
+                                                            <li>12 missing indexes on hot queries (PRs #243, #267)</li>
+                                                            <li>N+1 queries in 3 endpoints (dashboard, search, admin)</li>
+                                                            <li>No query result caching</li>
+                                                        </ul>
+                                                        <p><strong>Recommendation:</strong> Don't add sharding infrastructure. Fix the actual problems first (indexes, N+1s, caching). Sharding adds massive operational complexity you don't need yet. Revisit when you hit 5M+ users or 100GB+ database.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="example-takeaway">
+                                            <strong>Why this matters:</strong> Sharding is a legitimate solution at Google-scale. At your scale, it's complexity that will slow your team down for no benefit. Ravi saves you from "resume-driven development" by pointing out what actually needs fixing.
+                                        </div>
+                                    </div>
+
+<div class="detailed-example" id="example-missing-index-scale" data-chapter-section>
+                                            <h3>Scale-Aware Index Detection</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-python"># Search endpoint
+@app.route('/api/orders/search')
+def search():
+    status = request.args.get('status')
+    cutoff_date = datetime.now() - timedelta(days=30)
+    orders = (
+        Order.query.filter_by(status=status)
+        .filter(Order.created_at > cutoff_date)
+        .order_by(Order.created_at.desc())
+        .all()
+    )
+return jsonify([o.to_dict() for o in orders])</code></pre>
+                                                </div>
+
+                                                <div class="review-block other-tool">
+                                                    <h4>What Other Tools Say</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ Keep an eye on this query: if it slows down, add an index on the filtered columns.</p>
+                                                        <p>💡 Consider pagination or caching if response times spike.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="review-block ravi-tool">
+                                                    <h4>What Ravi Says</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ FUTURE_CONCERN: Missing Composite Index</p>
+                                                        <p><strong>Current State:</strong></p>
+                                                        <ul>
+                                                            <li>orders table: 8.2M rows, growing ~50K/day</li>
+                                                            <li>No index on (status, created_at)</li>
+                                                            <li>Current query time: ~800ms (full table scan)</li>
+                                                            <li>This endpoint is hit 500x/hour during business hours</li>
+                                                        </ul>
+                                                        <p><strong>Impact Projection:</strong></p>
+                                                        <ul>
+                                                            <li>In 30 days: 9.7M rows → ~1.2s queries</li>
+                                                            <li>In 90 days: 12.7M rows → ~2s queries (timeout risk)</li>
+                                                        </ul>
+                                                        <p><strong>Recommendation:</strong></p>
+                                                        <pre><code class="language-sql">CREATE INDEX idx_orders_status_created_at
+ON orders(status, created_at DESC)
+WHERE created_at > NOW() - INTERVAL '90 days';</code></pre>
+                                                        <p>Partial index reduces index size by 60% while covering 99% of queries.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="example-takeaway">
+                                                <strong>Why this matters:</strong> Other reviewers offer vague “add an index if it gets slow” guidance. Ravi sees you're adding 50K orders/day and projects when this becomes a problem. Add the index now (cheap), not during a production incident (expensive).
+                                            </div>
+                                        </div>
+
+<div class="detailed-example" id="example-column-drop" data-chapter-section>
+                                            <h3>Breaking Change Detection</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Migration</h4>
+                                                    <pre><code class="language-python"># migrations/20250113_remove_legacy_user_fields.py
+def upgrade():
+    op.drop_column('users', 'legacy_id')
+op.drop_column('users', 'old_email_format')</code></pre>
+                                                </div>
+
+                                                <div class="review-block other-tool">
+                                                    <h4>What Other Tools Say</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ Removing columns can break callers: run your test suite and search for lingering references.</p>
+                                                        <p>💡 Consider deprecating the fields in documentation before dropping them.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="review-block ravi-tool">
+                                                    <h4>What Ravi Says</h4>
+                                                    <div class="review-content">
+                                                        <p>🚨 IMMEDIATE: Breaking Changes Detected</p>
+                                                        <p><strong>Impact Analysis:</strong></p>
+                                                        <p>Removing `legacy_id` will break:</p>
+                                                        <ul>
+                                                            <li>app/models/user.rb:42 → still references legacy_id</li>
+                                                            <li>app/controllers/admin/imports_controller.rb:18 → uses legacy_id for matching</li>
+                                                            <li>lib/legacy_sync.rb:67 → syncs legacy_id to external system</li>
+                                                        </ul>
+                                                        <p>Removing `old_email_format` will break:</p>
+                                                        <ul>
+                                                            <li>app/mailers/user_mailer.rb:12 → fallback logic uses this field</li>
+                                                        </ul>
+                                                        <p><strong>Migration Strategy:</strong></p>
+                                                        <ol>
+                                                            <li>First PR: Remove all code references above</li>
+                                                            <li>Deploy and monitor for 1 week</li>
+                                                            <li>Second PR: Add deprecation warnings to columns</li>
+                                                            <li>Wait 1 release cycle</li>
+                                                            <li>Final PR: Remove columns with this migration</li>
+                                                        </ol>
+                                                        <p><strong>Recommendation:</strong> DO NOT merge this yet. Create cleanup PRs first to remove code dependencies, then remove columns safely.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="example-takeaway">
+                                                <strong>Why this matters:</strong> This migration would deploy fine, then immediately break 4 different parts of your application. Ravi scans your codebase for references and prevents the production incident.
+                                            </div>
+                                        </div>
+
+<div class="detailed-example" id="example-rate-limits" data-chapter-section>
+                                        <h3>When to Add Rate Limiting</h3>
+                                        <div class="example-comparison">
+                                            <div class="code-block">
+                                                <h4>Your Code</h4>
+                                                <pre><code class="language-python"># app/api/users.py
+@app.route('/api/users/search')
+def search_users():
+    query = request.args.get('q', '')
+    users = User.query.filter(
+        User.name.ilike(f'%{query}%')
+    ).limit(50).all()
+return jsonify([u.to_dict() for u in users])</code></pre>
+                                            </div>
+                                        </div>
+                                        <div class="interactive-diff" aria-label="Rate limiting guidance">
+                                            <div class="interactive-diff-header">
+                                                <h3>Same endpoint, wildly different risk</h3>
+                                                <p>Ravi looks at actual traffic and query cost before asking you to wire up Redis.</p>
+                                            </div>
+                                            <p class="comparison-hint">Pick your scale to update the review:</p>
+                                            <div class="comparison-controls" role="tablist">
+                                                <button class="comparison-toggle active" data-scenario="ratelimit-low" aria-pressed="true" type="button">5 req/min</button>
+                                                <button class="comparison-toggle" data-scenario="ratelimit-high" aria-pressed="false" type="button">500 req/min</button>
+                                            </div>
+                                            <div class="diff-pair active" data-scenario="ratelimit-low">
+                                                <div class="diff-panel review">
+                                                    <div class="diff-panel-label review-label">Ravi review</div>
+                                                    <h5>At 5 req/min</h5>
+                                                    <pre><code class="language-python">✅ No rate limiting yet
+# 5 req/min, negligible DB load
+# Limiter would require Redis + middleware + monitoring
+# Focus on features until >100 req/min or abuse appears</code></pre>
+                                                    <p class="diff-note">Ravi keeps you from spending a day wiring infra that adds zero value today.</p>
+                                                </div>
+                                            </div>
+                                            <div class="diff-pair" data-scenario="ratelimit-high">
+                                                <div class="diff-panel review">
+                                                    <div class="diff-panel-label review-label">Ravi review</div>
+                                                    <h5>At 500 req/min</h5>
+                                                    <pre><code class="language-python">🚨 Add rate limiting
+# 500 req/min, growing 40%/month
+# ILIKE scan on 840K rows -> easy DoS vector
+# One script can launch thousands of queries
+
+# Suggestion:
+limiter = Limiter(app, key_func=get_remote_address, storage_uri="redis://...")
+
+@app.route('/api/users/search')
+@limiter.limit("30 per minute")
+def search_users():
+...</code></pre>
+                                                    <p class="diff-note">Ravi spots the abuse window before attackers do and prescribes limiter settings plus indexing.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="example-takeaway">
+                                            <strong>Why this matters:</strong> Rate limiting is overhead at 5 req/min but critical at 500 req/min. Ravi knows your actual usage patterns and recommends defenses when they're actually needed, not before.
+                                        </div>
+                                        </div>
+
+<div class="detailed-example" id="example-async" data-chapter-section>
+                                        <h3>Queue vs Inline Execution</h3>
+                                        <div class="example-comparison">
+                                            <div class="code-block">
+                                                <h4>Your Code</h4>
+                                                <pre><code class="language-go">// services/notifications.go
+func NotifyPremiumUsers(message string) error {
+    rows, _ := db.Query("SELECT email FROM users WHERE premium = true")
+    defer rows.Close()
+
+    for rows.Next() {
+        var email string
+        rows.Scan(&email)
+        sendEmail(email, message) // blocking call
+    }
+    return nil
+}</code></pre>
+                                            </div>
+                                        </div>
+                                        <div class="interactive-diff" aria-label="Async queue guidance">
+                                            <div class="interactive-diff-header">
+                                                <h3>Should this block or queue?</h3>
+                                                <p>Trigger source and frequency matter more than purity. Ravi checks both.</p>
+                                            </div>
+                                            <p class="comparison-hint">Pick your scale to update the review:</p>
+                                            <div class="comparison-controls" role="tablist">
+                                                <button class="comparison-toggle active" data-scenario="async-low" aria-pressed="true" type="button">10 sends/day</button>
+                                                <button class="comparison-toggle" data-scenario="async-high" aria-pressed="false" type="button">2000/hour</button>
+                                            </div>
+                                            <div class="diff-pair active" data-scenario="async-low">
+                                                <div class="diff-panel review">
+                                                    <div class="diff-panel-label review-label">Ravi review</div>
+                                                    <h5>At 10 sends/day</h5>
+                                                    <pre><code class="language-go">✅ Keep synchronous
+// Manual admin action (~10/day)
+// Runtime: 8 seconds total
+// Users can wait; queue infra adds Redis, workers, retries
+// Focus elsewhere</code></pre>
+                                                    <p class="diff-note">Ravi saves you from shipping a queue for a rarely used internal button.</p>
+                                                </div>
+                                            </div>
+                                            <div class="diff-pair" data-scenario="async-high">
+                                                <div class="diff-panel review">
+                                                    <div class="diff-panel-label review-label">Ravi review</div>
+                                                    <h5>At 2000 sends/hour</h5>
+                                                    <pre><code class="language-go">🚨 Move to queue
+// Webhook fires 2000/hour
+// Each run takes 6 minutes
+// HTTP timeout 30s -> retries -> duplicate emails
+// Server workers saturated
+//
+// Suggestion:
+queue.Publish("notifications", NotificationJob{...})
+workers := queue.WorkerPool(50)
+workers.Process(sendEmail)</code></pre>
+                                                    <p class="diff-note">Ravi shows how inline work causes cascading retries and prescribes an async pipeline.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="example-takeaway">
+                                            <strong>Why this matters:</strong> Async queues add significant operational complexity. For infrequent admin actions, the complexity isn't worth it. For high-frequency user operations, it's essential. Ravi knows the difference.
+                                        </div>
+                                        </div>
+
+<div class="detailed-example" id="example-connection-pool" data-chapter-section>
+                                        <h3>Connection Pool Sizing</h3>
+                                        <div class="example-comparison">
+                                            <div class="code-block">
+                                                <h4>Your Code</h4>
+                                                <pre><code class="language-javascript">// config/database.js
+const { Pool } = require('pg');
+
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    // Using defaults
+});
+
+module.exports = pool;</code></pre>
+                                            </div>
+                                        </div>
+                                        <div class="interactive-diff" aria-label="Pool size tuning">
+                                            <div class="interactive-diff-header">
+                                                <h3>Default settings vs tuned pool</h3>
+                                                <p>Ravi looks at concurrent queries across services before tuning pool settings.</p>
+                                            </div>
+                                            <p class="comparison-hint">Pick your scale to update the review:</p>
+                                            <div class="comparison-controls" role="tablist">
+                                                <button class="comparison-toggle active" data-scenario="pool-small" aria-pressed="true" type="button">50 req/min</button>
+                                                <button class="comparison-toggle" data-scenario="pool-large" aria-pressed="false" type="button">5000 req/min</button>
+                                            </div>
+                                            <div class="diff-pair active" data-scenario="pool-small">
+                                                <div class="diff-panel review">
+                                                    <div class="diff-panel-label review-label">Ravi review</div>
+                                                    <h5>At 50 req/min</h5>
+                                                    <pre><code class="language-javascript">✅ Leave defaults
+// 50 req/min, avg 15ms
+// Concurrent queries ~3
+// Pool usage <30%
+// No waits observed</code></pre>
+                                                    <p class="diff-note">Ravi avoids over-tuning when the pool isn't close to saturation.</p>
+                                                </div>
+                                            </div>
+                                            <div class="diff-pair" data-scenario="pool-large">
+                                                <div class="diff-panel review">
+                                                    <div class="diff-panel-label review-label">Ravi review</div>
+                                                    <h5>At 5000 req/min</h5>
+                                                    <pre><code class="language-javascript">⚠️ Increase pool to 25
+// 4 services hitting same DB (5000 req/min)
+// Peak concurrent queries: 35
+// Wait time: 120ms; P99 latency 450ms
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  max: 25,
+  min: 10,
+});
+// matches 100 total connections across services</code></pre>
+                                                    <p class="diff-note">Ravi right-sizes the pool based on actual concurrent demand and global connection limits.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="example-takeaway">
+                                            <strong>Why this matters:</strong> Default connection pool settings work great at low scale but cause production slowness at high scale. Ravi calculates your actual concurrent load and recommends right-sized configuration.
+                                        </div>
+                                        </div>
+
+<div class="detailed-example" id="example-django-prefetch" data-chapter-section>
+                                            <h3>N+1 Query Detection</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-python"># app/views/dashboard.py
+def user_dashboard(request):
+    users = User.objects.all()
+    context = {
+        'users': [
+            {
+                'name': user.username,
+                'post_count': user.posts.count(),
+                'latest_post': user.posts.order_by('-created_at').first()
+            }
+            for user in users
+        ]
+    }
+return render(request, 'dashboard.html', context)</code></pre>
+                                                </div>
+
+                                                <div class="review-block other-tool">
+                                                    <h4>What Other Tools Say</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ Possible N+1 pattern detected: try <code>prefetch_related</code> if this view ever feels slow.</p>
+                                                        <pre><code class="language-python">from django.db.models import Count, Prefetch
+<p>💡 Adding pagination could also mitigate load.</p>
+</div>
+</div>
+
+<div class="review-block ravi-tool">
+<h4>What Ravi Says</h4>
+<div class="review-content">
+<p>🚨 CRITICAL: N+1 Query on Large Table</p>
+<p><strong>Production Impact:</strong></p>
+<ul>
+<li>users table: 847K rows</li>
+<li>posts table: 3.2M rows</li>
+<li>This view executes: 1 query for users + 847K × 2 queries for posts = 1.69M queries</li>
+<li>Estimated execution time: 45+ seconds</li>
+<li>This will timeout and crash the request</li>
+</ul>
+<p><strong>Fix using prefetch_related and annotate:</strong></p>
+
+users = User.objects.annotate(
+    post_count=Count('posts')
+).prefetch_related(
+    Prefetch('posts',
+        queryset=Post.objects.order_by('-created_at')[:1],
+        to_attr='latest_post_cached'
+    )
+)
+
+context = {
+    'users': [
+        {
+            'name': user.username,
+            'post_count': user.post_count,
+            'latest_post': user.latest_post_cached[0] if user.latest_post_cached else None
+        }
+        for user in users
+    ]
+}</code></pre>
+                                                        <p>This reduces queries from 1.69M to 3 queries total.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="example-takeaway">
+                                                <strong>Why this matters:</strong> Django's ORM makes it easy to write code that looks clean but executes terribly at scale. Ravi knows your table sizes and catches this before it reaches production.
+                                            </div>
+                                        </div>
+
+<div class="detailed-example" id="example-sqlalchemy-index" data-chapter-section>
+                                            <h3>Missing Composite Index</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-python"># app/models/order.py
+class Order(Base):
+    __tablename__ = 'orders'
+
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    status = Column(String(50))
+    created_at = Column(DateTime)
+
+# queries.py
+def get_pending_orders(user_id):
+    return db.session.query(Order)\
+        .filter(Order.user_id == user_id)\
+        .filter(Order.status == 'pending')\
+        .order_by(Order.created_at.desc())\
+.all()</code></pre>
+                                                </div>
+
+                                                <div class="review-block other-tool">
+                                                    <h4>What Other Tools Say</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ Query filters by status and created_at: add an index if you notice slow responses.</p>
+                                                        <p>💡 Consider LIMIT/Pagination if the result set grows too large.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="review-block ravi-tool">
+                                                    <h4>What Ravi Says</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ PERFORMANCE: Missing Composite Index</p>
+                                                        <p><strong>Current State:</strong></p>
+                                                        <ul>
+                                                            <li>orders table: 2.4M rows</li>
+                                                            <li>Query scans: Full table (no usable index)</li>
+                                                            <li>This query appears in: 3 endpoints, called ~500 times/min</li>
+                                                            <li>Average query time: 380ms (unacceptable)</li>
+                                                        </ul>
+                                                        <p><strong>Recommendation:</strong></p>
+                                                        <pre><code class="language-python"># app/models/order.py
+class Order(Base):
+    __tablename__ = 'orders'
+
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    status = Column(String(50))
+    created_at = Column(DateTime)
+
+    __table_args__ = (
+        Index('idx_orders_user_status_created',
+              'user_id', 'status', 'created_at'),
+)</code></pre>
+                                                        <p>This index will reduce query time from 380ms to ~5ms and handle the filtering + sorting in a single index scan.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="example-takeaway">
+                                                <strong>Why this matters:</strong> This query runs 500 times per minute. Without the index, you're doing 500 full table scans per minute on a 2.4M row table. Ravi calculates the actual impact.
+                                            </div>
+                                        </div>
+
+<div class="detailed-example" id="example-batch" data-chapter-section>
+                                            <h3>Batch Update Performance</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-go">// services/notifications/sender.go
+func SendNotifications(ctx context.Context, db *sql.DB) error {
+    rows, err := db.QueryContext(ctx, "SELECT id, user_id, message FROM notifications WHERE sent = false")
+    if err != nil {
+        return err
+    }
+    defer rows.Close()
+
+    for rows.Next() {
+        var notif Notification
+        if err := rows.Scan(&notif.ID, &notif.UserID, &notif.Message); err != nil {
+            return err
+        }
+
+        // Send notification
+        if err := sendEmail(notif); err != nil {
+            log.Printf("failed to send: %v", err)
+            continue
+        }
+
+        // Mark as sent
+        _, err = db.ExecContext(ctx,
+            "UPDATE notifications SET sent = true WHERE id = $1", notif.ID)
+        if err != nil {
+            return err
+        }
+    }
+    return rows.Err()
+}</code></pre>
+                                                </div>
+
+                                                <div class="review-block other-tool">
+                                                    <h4>What Other Tools Say</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ This loop could be slow: consider sending emails concurrently or moving work to a background job.</p>
+                                                        <p>💡 errgroup/worker pools might help if runtime becomes an issue.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="review-block ravi-tool">
+                                                    <h4>What Ravi Says</h4>
+                                                    <div class="review-content">
+                                                        <p>🚨 CRITICAL: N+1 Updates on Large Dataset</p>
+                                                        <p><strong>Production Impact:</strong></p>
+                                                        <ul>
+                                                            <li>notifications table: 156K unsent rows currently</li>
+                                                            <li>This code executes: 156K individual UPDATE statements</li>
+                                                            <li>Each UPDATE acquires row lock + generates WAL</li>
+                                                            <li>Estimated execution time: 8+ minutes</li>
+                                                            <li>Blocks other notification queries during execution</li>
+                                                        </ul>
+                                                        <p><strong>Better approach using batch updates:</strong></p>
+                                                        <pre><code class="language-go">// services/notifications/sender.go
+func SendNotifications(ctx context.Context, db *sql.DB) error {
+    const batchSize = 1000
+
+    for {
+        // Process in batches
+        rows, err := db.QueryContext(ctx, `
+            SELECT id, user_id, message
+            FROM notifications
+            WHERE sent = false
+            LIMIT $1`, batchSize)
+        if err != nil {
+            return err
+        }
+
+        var notifIDs []int64
+        var notifications []Notification
+
+        for rows.Next() {
+            var notif Notification
+            if err := rows.Scan(&notif.ID, &notif.UserID, &notif.Message); err != nil {
+                rows.Close()
+                return err
+            }
+            notifications = append(notifications, notif)
+        }
+        rows.Close()
+
+        if len(notifications) == 0 {
+            break // No more unsent notifications
+        }
+
+        // Send all in batch
+        for _, notif := range notifications {
+            if err := sendEmail(notif); err == nil {
+                notifIDs = append(notifIDs, notif.ID)
+            }
+        }
+
+        // Single batch UPDATE
+        if len(notifIDs) > 0 {
+            query := "UPDATE notifications SET sent = true WHERE id = ANY($1)"
+            _, err = db.ExecContext(ctx, query, pq.Array(notifIDs))
+            if err != nil {
+                return err
+            }
+        }
+    }
+    return nil
+}</code></pre>
+                                                        <p>This reduces 156K UPDATE statements to ~156 batch updates, reducing execution time from 8 minutes to ~15 seconds.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="example-takeaway">
+                                                <strong>Why this matters:</strong> Go makes it easy to write procedural code that doesn't scale. Ravi sees your actual row counts and flags the scalability issue before it becomes a production bottleneck.
+                                            </div>
+                                        </div>
+
+<div class="detailed-example" id="example-pool-limits" data-chapter-section>
+                                            <h3>Unbounded Connection Pools</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-go">// config/database.go
+func InitDB(connString string) (*sql.DB, error) {
+    db, err := sql.Open("postgres", connString)
+    if err != nil {
+        return nil, err
+    }
+
+    if err := db.Ping(); err != nil {
+        return nil, err
+    }
+
+    return db, nil
+}</code></pre>
+                                                </div>
+
+                                                <div class="review-block other-tool">
+                                                    <h4>What Other Tools Say</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ Production workloads often need explicit pool tuning: set limits if you start seeing “too many connections”.</p>
+                                                        <p>💡 Adding retry logic around Ping() could make startup more resilient.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="review-block ravi-tool">
+                                                    <h4>What Ravi Says</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ PRODUCTION RISK: Unbounded Connection Pool</p>
+                                                        <p><strong>Why This Matters:</strong></p>
+                                                        <ul>
+                                                            <li>Your database max_connections: 100</li>
+                                                            <li>Go's default sql.DB max open connections: unlimited</li>
+                                                            <li>Under load, this service will exhaust all database connections</li>
+                                                            <li>Other services will be unable to connect (cascading failure)</li>
+                                                        </ul>
+                                                        <p><strong>Recommended configuration:</strong></p>
+                                                        <pre><code class="language-go">// config/database.go
+func InitDB(connString string) (*sql.DB, error) {
+    db, err := sql.Open("postgres", connString)
+    if err != nil {
+        return nil, err
+    }
+
+    // Configure connection pool
+    db.SetMaxOpenConns(25)  // Max connections (leave headroom for other services)
+    db.SetMaxIdleConns(10)  // Idle connections (reduces connection churn)
+    db.SetConnMaxLifetime(5 * time.Minute)  // Recycle connections
+    db.SetConnMaxIdleTime(1 * time.Minute)  // Close idle connections
+
+    if err := db.Ping(); err != nil {
+        return nil, err
+    }
+
+    return db, nil
+}</code></pre>
+                                                        <p>With max_connections=100 and 4 services, allocate ~25 connections per service to prevent connection exhaustion.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="example-takeaway">
+                                                <strong>Why this matters:</strong> Go's database/sql defaults are optimized for development, not production. Ravi knows your database limits and prevents connection exhaustion before it causes an outage.
+                                            </div>
+                                        </div>
+
+<div class="detailed-example" id="example-lazy-loading" data-chapter-section>
+                                            <h3>Missing Eager Loading</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-javascript">// services/userService.js
+const { User, Order } = require('../models');
+
+async function getUserWithOrders(userId) {
+    const user = await User.findByPk(userId);
+
+    if (!user) {
+        throw new Error('User not found');
+    }
+
+    // Accessing related orders - will trigger separate query
+    const orders = await user.getOrders();
+
+    return {
+        id: user.id,
+        name: user.name,
+        orderCount: orders.length,
+        totalAmount: orders.reduce((sum, o) => sum + o.totalAmount, 0)
+    };
+}</code></pre>
+                                                </div>
+
+                                                <div class="review-block other-tool">
+                                                    <h4>What Other Tools Say</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ Make sure these repository calls run inside a transaction so lazy relations can load.</p>
+                                                        <p>💡 Add null checks around <code>getOrders()</code> to avoid NPEs.</p>
+                                                        <pre><code class="language-javascript">// services/userService.js
+</div>
+</div>
+
+<div class="review-block ravi-tool">
+<h4>What Ravi Says</h4>
+<div class="review-content">
+<p>🚨 PERFORMANCE: N+1 Query Pattern</p>
+<p><strong>The Problem:</strong></p>
+<ul>
+<li>User query fetches user data (1 query)</li>
+<li>user.getOrders() triggers a separate query for orders</li>
+<li>If called in a loop, this becomes N+1 queries</li>
+<li>Your orders table has 890K rows averaging 8 orders per user</li>
+</ul>
+<p><strong>Solution: Use eager loading with include</strong></p>
+const { User, Order } = require('../models');
+
+async function getUserWithOrders(userId) {
+    const user = await User.findByPk(userId, {
+        include: [{
+            model: Order,
+            as: 'orders'
+        }]
+    });
+
+    if (!user) {
+        throw new Error('User not found');
+    }
+
+    const orders = user.orders;
+
+    return {
+        id: user.id,
+        name: user.name,
+        orderCount: orders.length,
+        totalAmount: orders.reduce((sum, o) => sum + o.totalAmount, 0)
+    };
+}</code></pre>
+                                                        <p><strong>Recommendation:</strong> Use include to eagerly load orders. This reduces 2 queries to 1 JOIN query, loading exactly what you need.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="example-takeaway">
+                                                <strong>Why this matters:</strong> N+1 queries are a common ORM pitfall that can crush database performance at scale. Ravi detects these patterns by analyzing your query structure and table relationships.
+                                            </div>
+                                        </div>
+
+<div class="detailed-example" id="example-pagination-sql" data-chapter-section>
+                                            <h3>Pagination Performance Issues</h3>
+                                            <div class="example-comparison">
+                                                <div class="code-block">
+                                                    <h4>Your Code</h4>
+                                                    <pre><code class="language-javascript">// routes/products.js
+const express = require('express');
+const { Product } = require('../models');
+const router = express.Router();
+
+router.get('/api/products', async (req, res) => {
+    const { category, page = 0 } = req.query;
+    const limit = 20;
+    const offset = page * limit;
+
+    const products = await Product.findAll({
+        where: { category },
+        order: [['createdAt', 'DESC']],
+        limit,
+        offset
+    });
+
+    res.json(products.map(p => ({
+        id: p.id,
+        name: p.name,
+        price: p.price,
+        category: p.category,
+        imageUrl: p.imageUrl
+    })));
+});
+
+module.exports = router;</code></pre>
+                                                </div>
+
+                                                <div class="review-block other-tool">
+                                                    <h4>What Other Tools Say</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ Pagination looks fine: just keep an eye on query performance as the table grows.</p>
+                                                        <p>💡 You could add caching for popular categories to reduce DB load.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="review-block ravi-tool">
+                                                    <h4>What Ravi Says</h4>
+                                                    <div class="review-content">
+                                                        <p>⚠️ PERFORMANCE: Missing Index Causes Slow Pagination</p>
+                                                        <p><strong>Current Performance:</strong></p>
+                                                        <ul>
+                                                            <li>products table: 1.8M rows</li>
+                                                            <li>No index on (category, created_at)</li>
+                                                            <li>Query performs: Full table scan + in-memory sort + limit</li>
+                                                            <li>Query time: 850ms (page 1) to 2.1s (page 50+)</li>
+                                                            <li>This endpoint: ~1200 requests/hour</li>
+                                                        </ul>
+                                                        <p><strong>Why Pagination Gets Slower:</strong></p>
+                                                        <ul>
+                                                            <li>Page 1 (OFFSET 0): Scans entire table, sorts, returns first 20</li>
+                                                            <li>Page 50 (OFFSET 1000): Scans entire table, sorts, skips 1000, returns next 20</li>
+                                                            <li>Every page pays full table scan cost</li>
+                                                        </ul>
+                                                        <p><strong>Add Composite Index:</strong></p>
+                                                        <pre><code class="language-javascript">// migrations/20250113_add_product_category_index.js
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.addIndex('products', ['category', 'created_at'], {
+      name: 'idx_products_category_created',
+      order: [['category', 'ASC'], ['created_at', 'DESC']]
+    });
+  }
+};</code></pre>
+                                                        <p>With this index:</p>
+                                                        <ul>
+                                                            <li>Query time: 5-12ms (all pages, consistent)</li>
+                                                            <li>Uses index scan (already sorted, no full table scan)</li>
+                                                            <li>Saves 1020 seconds of DB time per hour</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="example-takeaway">
+                                            <strong>Why this matters:</strong> ORM pagination works correctly but doesn't create the indexes you need. Ravi sees the query pattern, table size, and usage frequency to calculate the real performance impact.
+                                        </div>
+                                    </div>
+
+                </div>
+
+                <!-- Final CTA -->
+                <div class="examples-cta">
+                    <h2>Ready to See Ravi Review Your Code?</h2>
+                    <p>Get architectural-level reviews on every pull request, catching issues that code-only tools miss.</p>
+                    <a href="https://ai.ravi.app" class="btn-primary">Get Started Free</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">Ravi</div>
+                    <p class="footer-tagline">Architectural intelligence for pull requests</p>
+                    <p class="footer-copyright">© 2025 Ravi. All rights reserved.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <div class="footer-links">
+                        <a href="examples.html">Examples</a>
+                        <a href="https://ai.ravi.app/docs/">Documentation</a>
+                        <a href="https://ai.ravi.app/privacy/">Privacy & Security</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="index.html#how-it-works">Why Ravi</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-links">
+                        <a href="mailto:team@ravi.app">team@ravi.app</a>
+                        <a href="https://www.linkedin.com/company/raviai" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+</body>
+</html>

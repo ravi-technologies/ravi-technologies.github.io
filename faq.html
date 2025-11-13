@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Ravi Architectural Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">Ravi</a>
+                <div class="nav-links">
+                    <a href="examples.html">Examples</a>
+                    <a href="faq.html" aria-current="page">FAQ</a>
+                    <a href="https://ai.ravi.app" class="btn-primary">Get Started</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero faq-hero">
+            <div class="container">
+                <h1>Frequently Asked Questions</h1>
+                <p class="hero-subtitle">Everything founders and engineering leaders ask before inviting Ravi into their pull requests.</p>
+            </div>
+        </section>
+
+        <nav class="chapter-nav" aria-label="FAQ chapters">
+            <div class="container">
+                <a href="#faq-overview" class="chapter-link" data-chapter-link="faq-overview">Getting Started</a>
+                <a href="#faq-security" class="chapter-link" data-chapter-link="faq-security">Security</a>
+                <a href="#faq-support" class="chapter-link" data-chapter-link="faq-support">Support</a>
+            </div>
+        </nav>
+
+        <section class="faq-section">
+            <div class="container">
+                <div class="faq-group" id="faq-overview" data-chapter-section>
+                    <h2>Getting Started</h2>
+                    <div class="faq-grid">
+                        <details class="faq-item" open>
+                            <summary>How does Ravi understand my system without copying data?</summary>
+                            <p>Ravi ingests metadata only: table names, schemas, row counts, query plans, and repository context. It never pulls customer rows or secrets, so you get architectural insight without sharing production data.</p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>What languages and databases are supported today?</summary>
+                            <p>We focus on teams running PostgreSQL or MySQL talking to back ends written in Ruby, Python, TypeScript/Node.js, or Go. Additional languages and datastores are on our roadmap, so reach out if you have a specific stack.</p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Will Ravi slow our PR workflow down?</summary>
+                            <p>No. Reviews arrive in parallel with your existing CI checks. Ravi skips style nits and only flags issues that will affect production behaviour, so engineers stay in flow while still getting architect-level feedback.</p>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="faq-group" id="faq-security" data-chapter-section>
+                    <h2>Security & Access</h2>
+                    <div class="faq-grid">
+                        <details class="faq-item">
+                            <summary>Can I control what context Ravi sees?</summary>
+                            <p>Yes. You decide which repositories and databases are connected. Access is read-only, scoped through service accounts, and can be revoked at any time.</p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>How long does setup take?</summary>
+                            <p>Most teams finish onboarding in under an hour: install the GitHub app, point Ravi at your primary database (metadata-only), and select which PRs should run architectural checks.</p>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="faq-group" id="faq-support" data-chapter-section>
+                    <h2>Support</h2>
+                    <div class="faq-grid">
+                        <details class="faq-item">
+                            <summary>What if I need help convincing security or leadership?</summary>
+                            <p>We provide a short security brief plus sample PR reviews you can share internally. Email <a href="mailto:team@ravi.app">team@ravi.app</a> and we'll send the packet.</p>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="faq-cta">
+                    <h3>Still have questions?</h3>
+                    <p>We're happy to walk through your architecture, data boundaries, or rollout plan.</p>
+                    <a href="mailto:team@ravi.app?subject=FAQ" class="btn-secondary">Talk to Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">Ravi</div>
+                    <p class="footer-tagline">Architectural intelligence for pull requests</p>
+                    <p class="footer-copyright">© 2025 Ravi. All rights reserved.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <div class="footer-links">
+                        <a href="examples.html">Examples</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="https://ai.ravi.app/docs/">Documentation</a>
+                        <a href="https://ai.ravi.app/privacy/">Privacy & Security</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="index.html#how-it-works">Why Ravi</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-links">
+                        <a href="mailto:team@ravi.app">team@ravi.app</a>
+                        <a href="https://www.linkedin.com/company/raviai" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

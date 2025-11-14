@@ -33,11 +33,11 @@
         <section class="hero">
             <div class="container">
                 <h1>Code reviewers see patterns.<br>Architects see systems.</h1>
-                <p class="hero-subtitle">Ravi is the resident architect on your team. It reads the full system state (schema, workloads, infrastructure) so every review reflects how your software truly runs, not just how the diff looks.</p>
+                <p class="hero-subtitle">Ravi is the resident architect on your team. It reads your full system state (database schema, table sizes, query patterns, request volumes, latencies, and infrastructure constraints) so every review reflects how your software truly runs, not just how the diff looks.</p>
                 <ul class="hero-highlights">
-                    <li>Understands database shape and live row counts</li>
+                    <li>Reviews code with knowledge of your actual data volumes</li>
                     <li>Calibrates advice to your current scale</li>
-                    <li>Flags issues that will break production, not style nits</li>
+                    <li>Catches production failures before they ship</li>
                 </ul>
                 <div class="hero-cta">
                     <a href="https://ai.ravi.app" class="btn-primary">Get Started Free</a>
@@ -63,14 +63,14 @@
 
                         <p><strong>Code Review Only Sees Code.</strong> Traditional reviewers stop at syntax and patterns. They deliver the same advice whether you're serving 100 or 100,000 users, so scale-specific failures slip through.</p>
 
-                        <p><strong>Production Incidents Come From Context.</strong> Outages happen because loops fan out across millions of rows, missing indexes stretch queries into seconds, and schema tweaks ripple through forgotten code paths. These issues are only visible with full system context.</p>
+                        <p><strong>Production Incidents Come From Context.</strong> Outages happen because loops fan out across millions of rows, missing indexes stretch queries into seconds, and schema tweaks ripple through forgotten code paths. These issues are only visible when you understand the system, not just the code.</p>
                     </div>
                 </div>
 
                 <!-- What is Ravi -->
                 <div class="chapter-block" id="what-is-ravi" data-chapter-section>
                     <h2>What is Ravi</h2>
-                    <p class="section-intro">Ravi is your team's resident architect, reviewing code with full system context on every pull request. Software engineering isn't about writing textbook-perfect code. It's about making reasonable trade-offs given your constraints. Ravi helps you make the right choices for your scale and stage without compromising on velocity.</p>
+                    <p class="section-intro">Ravi is your team's resident architect, bringing system-level awareness to every pull request. Software engineering isn't about writing textbook-perfect code. It's about making the right trade-offs for your constraints. Ravi helps you make those choices without compromising velocity.</p>
 
                     <div class="roadmap-grid roadmap-grid-three">
                         <div class="roadmap-card architect-card">
@@ -82,7 +82,7 @@
                                 </svg>
                             </div>
                             <h4>System-Aware Reviews</h4>
-                            <p>Ravi understands your database schema, table sizes, query execution plans, and production constraints. It catches issues that code-only reviewers miss, like N+1 queries on multi-million row tables or missing indexes that will tank performance at scale.</p>
+                            <p>With visibility into your database structure, query execution plans, production workloads, and live traffic patterns, Ravi catches what code-only reviewers miss. That N+1 query might handle 10 req/min fine, but at 500 req/min with 5 million rows? It's an outage waiting to happen.</p>
                         </div>
                         <div class="roadmap-card architect-card">
                             <div class="roadmap-icon">
@@ -93,7 +93,7 @@
                                 </svg>
                             </div>
                             <h4>True Peer, Not a Linter</h4>
-                            <p>Other code reviewers give the same advice to a 1,000-user startup as they would to Google. Ravi knows your actual scale (table sizes, request volumes, production constraints) and gives advice calibrated to YOUR reality. Early stage? Optimize for velocity. At scale? Optimize for stability. That's what architects do.</p>
+                            <p>Other code reviewers give the same advice to a 1,000-user startup as they would to Google. Ravi understands your current reality: where you are today, not where you might be in five years. Early stage? Ship fast. At scale? Prioritize stability. Just like a senior engineer would.</p>
                         </div>
                         <div class="roadmap-card architect-card">
                             <div class="roadmap-icon">
@@ -105,42 +105,35 @@
                                 </svg>
                             </div>
                             <h4>Built for Engineering Leaders</h4>
-                            <p>You can't hire a senior architect for every team. But you can scale architectural expertise across your entire organization. Ravi gives every PR the level of review it deserves by catching production issues before they ship, without slowing teams down.</p>
+                            <p>You can't hire a senior architect for every team, but you can scale design-level expertise across your organization. Ravi ensures every PR gets thoughtful, context-aware review: catching production issues before they ship, without slowing anyone down.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="chapter-block" id="trust" data-chapter-section>
                 <h2>Trust & Security</h2>
-                <p class="section-intro">Your data security is our priority. Ravi is designed from the ground up with privacy and security at its core.</p>
+                <p class="section-intro">We built Ravi for teams that ship fast without compromising on security. Here's how we protect your data:</p>
 
                 <div class="trust-checklist">
                     <div class="trust-item">
                         <span class="trust-check">✓</span>
                         <div class="trust-content">
-                            <h4>Metadata Only</h4>
-                            <p>Ravi accesses only database metadata: table names, columns, indexes, row counts. Never your actual data rows or customer PII.</p>
+                            <h4>Metadata Only, Never Customer Data</h4>
+                            <p>Ravi reads your database structure (table names, column types, indexes, row counts) but never touches actual customer data. Your user emails, payment info, and business data stay completely private.</p>
                         </div>
                     </div>
                     <div class="trust-item">
                         <span class="trust-check">✓</span>
                         <div class="trust-content">
-                            <h4>Encrypted Connections</h4>
-                            <p>All database connections use TLS encryption. Credentials are encrypted at rest using industry-standard encryption.</p>
+                            <h4>Transient Analysis</h4>
+                            <p>We analyze your code and schema during PR review, then immediately discard everything. No storage, no training AI models on your IP, no databases of your source code.</p>
                         </div>
                     </div>
                     <div class="trust-item">
                         <span class="trust-check">✓</span>
                         <div class="trust-content">
-                            <h4>Transient Processing</h4>
-                            <p>Your code is processed transiently during analysis and immediately discarded. We never store your source code or customer data.</p>
-                        </div>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-check">✓</span>
-                        <div class="trust-content">
-                            <h4>Read-Only Access</h4>
-                            <p>Database permissions are strictly read-only for metadata catalogs. No write operations, schema changes, or data access possible.</p>
+                            <h4>Read-Only & Encrypted</h4>
+                            <p>All database connections require read-only permissions and use TLS encryption. Credentials are encrypted at rest. We can't modify your schema or data even if we wanted to.</p>
                         </div>
                     </div>
                 </div>
@@ -156,7 +149,7 @@
                     </div>
                     <div class="learn-more-card">
                         <h4>🔒 Privacy & Security</h4>
-                        <p>Learn how Ravi accesses only metadata, processes data transiently, and never touches customer data.</p>
+                        <p>Full details on our security architecture, compliance, and data handling practices.</p>
                         <a href="https://ai.ravi.app/privacy/" class="learn-more-link">Privacy policy →</a>
                     </div>
                 </div>
@@ -166,8 +159,8 @@
 
         <section class="final-cta">
             <div class="container">
-                <h2>Ready to Scale Your Architectural Expertise?</h2>
-                <p>Join engineering teams who review code like architects, with full system context on every pull request.</p>
+                <h2>Ready to Scale Your Design Expertise?</h2>
+                <p>Join engineering teams who review code with system-level awareness on every pull request.</p>
                 <a href="https://ai.ravi.app" class="btn-primary">Get Started Free</a>
             </div>
         </section>
@@ -179,7 +172,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">Ravi</div>
-                    <p class="footer-tagline">Architectural intelligence for pull requests</p>
+                    <p class="footer-tagline">System-aware intelligence for pull requests</p>
                     <p class="footer-copyright">© 2025 Ravi. All rights reserved.</p>
                 </div>
                 <div class="footer-section">

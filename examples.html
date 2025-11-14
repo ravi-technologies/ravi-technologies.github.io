@@ -32,8 +32,8 @@
     <main>
         <section class="hero examples-hero">
             <div class="container">
-                <h1>See Architectural Intelligence in Action</h1>
-                <p class="hero-subtitle">Real examples showing how Ravi reviews code with full system context: your database schema, table sizes, query patterns, and production scale.</p>
+                <h1>See System-Aware Reviews in Action</h1>
+                <p class="hero-subtitle">Real examples showing how Ravi reviews code with knowledge of your database structure, actual data volumes, query patterns, request volumes, latencies, and production constraints.</p>
             </div>
         </section>
 
@@ -208,7 +208,7 @@ def featured_products():
                                             </div>
 
                                         <div class="example-takeaway">
-                                            <strong>Why this matters:</strong> Code-only reviewers either always recommend caching (over-engineering) or never mention it (under-engineering). Ravi knows when optimization makes sense based on YOUR data.
+                                            <strong>The impact:</strong> Code-only reviewers either always recommend caching (over-engineering) or never mention it (under-engineering). With visibility into your data volumes, Ravi recommends optimizations when they actually matter.
                                             </div>
                                         </div>
 
@@ -287,7 +287,7 @@ def upgrade():
                                         </div>
 
                                         <div class="example-takeaway">
-                                            <strong>Why this matters:</strong> It’s easy to ignore “might lock” warnings when the table is small. Ravi knows your session table actually holds 10M rows and quantifies the lock window so you plan the migration correctly.</div>
+                                            <strong>Why it matters:</strong> It's easy to ignore generic "might lock" warnings. By understanding your actual 10M row dataset, the review quantifies the lock window so you plan the migration correctly.</div>
                                     </div>
 
 <div class="detailed-example" id="example-pagination" data-chapter-section>
@@ -313,7 +313,7 @@ return jsonify([t.to_dict() for t in transactions])</code></pre>
                                             <div class="interactive-diff" aria-label="Pagination strategy comparison">
                                                 <div class="interactive-diff-header">
                                                     <h3>Offset vs cursor pagination</h3>
-                                                    <p>Same view function, different data sizes. Ravi knows when to keep it simple and when to switch patterns.</p>
+                                                    <p>Same view function, different data sizes. The right pattern depends entirely on your scale.</p>
                                                 </div>
                                                 <p class="comparison-hint">Pick your scale to update the review:</p>
                                                 <div class="comparison-controls" role="tablist">
@@ -333,7 +333,7 @@ return jsonify([t.to_dict() for t in transactions])</code></pre>
 # - Cursor adds client complexity
 # - Random page jumps still needed
 # - Current performance is fine</code></pre>
-                                                        <p class="diff-note">Ravi avoids pushing complex patterns when the dataset is tiny and requests are light.</p>
+                                                        <p class="diff-note">Complex patterns aren't recommended when the dataset is tiny and requests are light.</p>
                                                     </div>
                                                 </div>
                                                 <div class="diff-pair" data-scenario="pagination-large">
@@ -354,12 +354,12 @@ def list_transactions():
         query = query.filter(Transaction.id < cursor)
     rows = query.limit(50).all()
 return {"data": [r.to_dict() for r in rows], "next_cursor": rows[-1].id}</code></pre>
-                                                        <p class="diff-note">Same endpoint, but Ravi sees deep pagination cost and prescribes a cursor strategy to keep latency flat.</p>
+                                                        <p class="diff-note">At this scale, deep pagination becomes expensive. Cursor strategy keeps latency flat across all pages.</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="example-takeaway">
-                                                <strong>Why this matters:</strong> Offset pagination is simpler at small scale. Cursor pagination adds complexity but becomes necessary at large scale. Ravi tells you which pattern fits YOUR data size.
+                                                <strong>The trade-off:</strong> Offset pagination is simpler at small scale. Cursor pagination adds complexity but becomes necessary at large scale. Context-aware review tells you which pattern fits your data size.
                                             </div>
                                         </div>
 
@@ -423,21 +423,22 @@ return jsonify([dict(r) for r in results])</code></pre>
                                                         <pre><code class="language-python">⚠️ Add read replica
 # 2K req/min, 85% reads
 # CPU: 75-90% during peaks
-# Analytics query: 200/hour
-# Checkout writes slowed to 120ms
-
+# Analytics query: 200/hour (avg 3s each)
+# Checkout writes slowed: 45ms → 120ms
+# P95 read latency: 180ms
+#
 # Suggestion:
 db_replica = SQLAlchemy(app, bind_key="replica")
 
 @app.route("/api/analytics/sales")
 def sales_analytics():
 return db_replica.session.execute(ANALYTICS_SQL)</code></pre>
-                                                        <p class="diff-note">Ravi detects that reads are starving writes and prescribes routing heavy queries to a replica with proper timeouts.</p>
+                                                        <p class="diff-note">At this traffic level, reads are starving writes. Routing heavy queries to a replica with proper timeouts solves it.</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="example-takeaway">
-                                                <strong>Why this matters:</strong> Read replicas add infrastructure complexity and cost that's not justified at low traffic. At high traffic with read-heavy workload, they're essential to keep writes fast and prevent database bottlenecks.
+                                                <strong>Bottom line:</strong> Read replicas add infrastructure complexity and cost that's not justified at low traffic. At high traffic with read-heavy workload, they're essential to keep writes fast and prevent database bottlenecks.
                                             </div>
                                         </div>
 
@@ -508,7 +509,7 @@ return jsonify({"job_id": job_id, "status": "queued"})</code></pre>
                                                 </div>
                                             </div>
                                         <div class="example-takeaway">
-                                            <strong>Why this matters:</strong> Background job infrastructure adds significant complexity. At low usage with fast operations, inline processing is simpler. At high usage with slow operations, background jobs are essential for good UX and system stability.
+                                            <strong>When it matters:</strong> Background job infrastructure adds significant complexity. At low usage with fast operations, inline processing is simpler. At high usage with slow operations, background jobs are essential for good UX and system stability.
                                         </div>
                                     </div>
 
@@ -570,7 +571,7 @@ def upgrade():
                                                 </div>
                                             </div>
                                         <div class="example-takeaway">
-                                            <strong>Why this matters:</strong> Sharding is a legitimate solution at Google-scale. At your scale, it's complexity that will slow your team down for no benefit. Ravi saves you from "resume-driven development" by pointing out what actually needs fixing.
+                                            <strong>Reality check:</strong> Sharding is a legitimate solution at Google-scale. At your scale, it's complexity that will slow your team down for no benefit. Context-aware review saves you from "resume-driven development" by pointing out what actually needs fixing.
                                         </div>
                                     </div>
 
@@ -626,7 +627,7 @@ WHERE created_at > NOW() - INTERVAL '90 days';</code></pre>
                                                 </div>
                                             </div>
                                             <div class="example-takeaway">
-                                                <strong>Why this matters:</strong> Other reviewers offer vague “add an index if it gets slow” guidance. Ravi sees you're adding 50K orders/day and projects when this becomes a problem. Add the index now (cheap), not during a production incident (expensive).
+                                                <strong>Proactive vs reactive:</strong> Other reviewers offer vague "add an index if it gets slow" guidance. With visibility into your 50K orders/day growth, the review projects when this becomes a problem. Add the index now (cheap), not during a production incident (expensive).
                                             </div>
                                         </div>
 
@@ -677,7 +678,7 @@ op.drop_column('users', 'old_email_format')</code></pre>
                                                 </div>
                                             </div>
                                             <div class="example-takeaway">
-                                                <strong>Why this matters:</strong> This migration would deploy fine, then immediately break 4 different parts of your application. Ravi scans your codebase for references and prevents the production incident.
+                                                <strong>Catching the invisible:</strong> This migration would deploy fine, then immediately break 4 different parts of your application. Scanning the codebase for references prevents the production incident.
                                             </div>
                                         </div>
 
@@ -738,7 +739,7 @@ def search_users():
                                             </div>
                                         </div>
                                         <div class="example-takeaway">
-                                            <strong>Why this matters:</strong> Rate limiting is overhead at 5 req/min but critical at 500 req/min. Ravi knows your actual usage patterns and recommends defenses when they're actually needed, not before.
+                                            <strong>Right-sized defenses:</strong> Rate limiting is overhead at 5 req/min but critical at 500 req/min. Understanding your actual usage patterns means recommending defenses when they're needed, not before.
                                         </div>
                                         </div>
 
@@ -802,7 +803,7 @@ workers.Process(sendEmail)</code></pre>
                                             </div>
                                         </div>
                                         <div class="example-takeaway">
-                                            <strong>Why this matters:</strong> Async queues add significant operational complexity. For infrequent admin actions, the complexity isn't worth it. For high-frequency user operations, it's essential. Ravi knows the difference.
+                                            <strong>Complexity vs value:</strong> Async queues add significant operational complexity. For infrequent admin actions, the complexity isn't worth it. For high-frequency user operations, it's essential. Understanding your usage patterns reveals the difference.
                                         </div>
                                         </div>
 
@@ -851,20 +852,21 @@ module.exports = pool;</code></pre>
                                                     <pre><code class="language-javascript">⚠️ Increase pool to 25
 // 4 services hitting same DB (5000 req/min)
 // Peak concurrent queries: 35
-// Wait time: 120ms; P99 latency 450ms
-
+// Connection wait time: 120ms
+// P99 latency: 450ms (150ms queuing)
+//
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   max: 25,
   min: 10,
 });
 // matches 100 total connections across services</code></pre>
-                                                    <p class="diff-note">Ravi right-sizes the pool based on actual concurrent demand and global connection limits.</p>
+                                                    <p class="diff-note">Right-sizing the pool based on actual concurrent demand and observed latencies prevents connection exhaustion.</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="example-takeaway">
-                                            <strong>Why this matters:</strong> Default connection pool settings work great at low scale but cause production slowness at high scale. Ravi calculates your actual concurrent load and recommends right-sized configuration.
+                                            <strong>Defaults aren't universal:</strong> Default connection pool settings work great at low scale but cause production slowness at high scale. Calculating your actual concurrent load enables right-sized configuration recommendations.
                                         </div>
                                         </div>
 
@@ -936,7 +938,7 @@ context = {
                                                 </div>
                                             </div>
                                             <div class="example-takeaway">
-                                                <strong>Why this matters:</strong> Django's ORM makes it easy to write code that looks clean but executes terribly at scale. Ravi knows your table sizes and catches this before it reaches production.
+                                                <strong>ORM footgun:</strong> Django's ORM makes it easy to write code that looks clean but executes terribly at scale. Knowing your table sizes catches this before it reaches production.
                                             </div>
                                         </div>
 
@@ -1001,7 +1003,7 @@ class Order(Base):
                                                 </div>
                                             </div>
                                             <div class="example-takeaway">
-                                                <strong>Why this matters:</strong> This query runs 500 times per minute. Without the index, you're doing 500 full table scans per minute on a 2.4M row table. Ravi calculates the actual impact.
+                                                <strong>Math that matters:</strong> This query runs 500 times per minute. Without the index, you're doing 500 full table scans per minute on a 2.4M row table. The actual impact is calculable and significant.
                                             </div>
                                         </div>
 
@@ -1117,7 +1119,7 @@ func SendNotifications(ctx context.Context, db *sql.DB) error {
                                                 </div>
                                             </div>
                                             <div class="example-takeaway">
-                                                <strong>Why this matters:</strong> Go makes it easy to write procedural code that doesn't scale. Ravi sees your actual row counts and flags the scalability issue before it becomes a production bottleneck.
+                                                <strong>Scale trap:</strong> Go makes it easy to write procedural code that doesn't scale. Visibility into your actual row counts flags the scalability issue before it becomes a production bottleneck.
                                             </div>
                                         </div>
 
@@ -1185,7 +1187,7 @@ func InitDB(connString string) (*sql.DB, error) {
                                                 </div>
                                             </div>
                                             <div class="example-takeaway">
-                                                <strong>Why this matters:</strong> Go's database/sql defaults are optimized for development, not production. Ravi knows your database limits and prevents connection exhaustion before it causes an outage.
+                                                <strong>Production vs dev:</strong> Go's database/sql defaults are optimized for development, not production. Understanding your database limits prevents connection exhaustion before it causes an outage.
                                             </div>
                                         </div>
 
@@ -1265,7 +1267,7 @@ async function getUserWithOrders(userId) {
                                                 </div>
                                             </div>
                                             <div class="example-takeaway">
-                                                <strong>Why this matters:</strong> N+1 queries are a common ORM pitfall that can crush database performance at scale. Ravi detects these patterns by analyzing your query structure and table relationships.
+                                                <strong>Classic pitfall:</strong> N+1 queries are a common ORM pattern that can crush database performance at scale. Analyzing query structure and table relationships detects these before they hit production.
                                             </div>
                                         </div>
 
@@ -1349,7 +1351,7 @@ module.exports = {
                                                 </div>
                                             </div>
                                         <div class="example-takeaway">
-                                            <strong>Why this matters:</strong> ORM pagination works correctly but doesn't create the indexes you need. Ravi sees the query pattern, table size, and usage frequency to calculate the real performance impact.
+                                            <strong>Hidden costs:</strong> ORM pagination works correctly but doesn't create the indexes you need. Seeing the query pattern, table size, and usage frequency reveals the real performance impact.
                                         </div>
                                     </div>
 

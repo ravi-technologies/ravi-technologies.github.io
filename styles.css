@@ -981,10 +981,11 @@ body {
 /* Hero CTA Enhancement */
 .hero-cta {
     display: flex;
+    flex-direction: column;
     gap: 16px;
     justify-content: center;
     align-items: center;
-    margin-top: 32px;
+    margin-top: 40px;
 }
 
 /* Footer Enhancement */
@@ -2074,13 +2075,33 @@ footer {
 .hero-cta .btn-primary {
     background: var(--primary);
     color: white;
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(124, 92, 255, 0.3);
 }
 
 .hero-cta .btn-primary:hover {
     background: #8B5CF6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 92, 255, 0.4);
+}
+
+.hero-cta .btn-secondary {
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    border: 2px solid rgba(124, 92, 255, 0.25);
+    color: var(--primary);
+    border-radius: 8px;
+}
+
+.hero-cta .btn-secondary:hover {
     transform: translateY(-1px);
+    background: rgba(124, 92, 255, 0.08);
+    border-color: var(--primary);
 }
 
 .hero-cta {

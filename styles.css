@@ -986,6 +986,9 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 40px;
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+    position: relative;
+    z-index: 1;
 }
 
 /* Footer Enhancement */
@@ -2102,10 +2105,4 @@ footer {
     transform: translateY(-1px);
     background: rgba(124, 92, 255, 0.08);
     border-color: var(--primary);
-}
-
-.hero-cta {
-    animation: fadeInUp 0.6s ease-out 0.3s both;
-    position: relative;
-    z-index: 1;
 }

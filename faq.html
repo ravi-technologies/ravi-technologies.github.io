@@ -87,7 +87,7 @@
                             <summary>What is Ravi and how is it different from other code review tools?</summary>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    <p>Ravi brings system-level awareness to every pull request. Unlike other code reviewers that focus on syntax or basic static analysis, Ravi understands your production reality: database structure, actual data volumes, query patterns, request volumes, latencies, and API contracts. It catches issues like N+1 queries, missing indexes, breaking changes, and performance problems that other tools miss because they only see the code, not the system it runs on.</p>
+                                    <p>Ravi brings system-level awareness to every pull request. Unlike other code reviewers that focus on syntax or basic static analysis, Ravi understands your production reality: request volumes, latencies, API contracts, and traffic patterns. It catches issues like breaking changes and performance problems that other tools miss because they only see the code, not the system it runs on.</p>
                                 </div>
                             </div>
                         </details>
@@ -96,7 +96,7 @@
                             <summary>How does Ravi understand my system without storing data?</summary>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    <p>We read your database structure (table names, columns, indexes, row counts) but never touch actual customer data. By combining this structural information with your code changes during PR review, we can spot issues like missing indexes or inefficient queries without ever seeing your users' emails, payment info, or business data. The analysis happens in real-time and nothing is retained afterward.</p>
+                                    <p>We analyze your code changes during PR review alongside production telemetry and traffic patterns.</p>
                                 </div>
                             </div>
                         </details>
@@ -105,7 +105,7 @@
                             <summary>How long does setup take?</summary>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    <p>Most teams are up and running in under an hour. The process involves three steps: (1) Install the Ravi GitHub App and grant access to your repositories, (2) Connect your PostgreSQL database with read-only credentials for metadata access, and (3) Configure which repositories or PR patterns should trigger architectural reviews. We provide guided setup and can assist over a call if needed.</p>
+                                    <p>It should just be a few minutes. You install the Ravi GitHub App and select the repos. That's it.</p>
                                 </div>
                             </div>
                         </details>
@@ -143,10 +143,10 @@
                     <h2>Technical Details</h2>
                     <div class="faq-grid">
                         <details class="faq-item">
-                            <summary>What languages and databases are supported today?</summary>
+                            <summary>What languages are supported today?</summary>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    <p>We currently support the following programming languages: Python, JavaScript, TypeScript, Go, Java, Kotlin, Scala, Ruby, PHP, C#, Rust, C++, C, Swift, and SQL. For databases, we support PostgreSQL. Additional databases (MySQL, MongoDB, etc.) are on our roadmap. If you have a specific stack requirement, reach out to discuss your needs.</p>
+                                    <p>We currently support the following programming languages: Python, JavaScript, TypeScript, Go, Java, Kotlin, Scala, Ruby, PHP, C#, Rust, C++, C, Swift, and SQL. If you have a specific stack requirement, reach out to discuss your needs.</p>
                                 </div>
                             </div>
                         </details>
@@ -155,7 +155,7 @@
                             <summary>What types of issues does Ravi catch?</summary>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    <p>Production-impacting issues: N+1 queries, missing indexes, inefficient joins, breaking API changes, data consistency problems, security vulnerabilities in data access patterns, race conditions, error handling that could cause data loss, and migrations that might cause downtime. We focus on reliability, performance, and maintainability at scale.</p>
+                                    <p>Production-impacting issues: breaking API changes, data consistency problems, security vulnerabilities in data access patterns, race conditions, error handling that could cause data loss, and migrations that might cause downtime. We focus on reliability, performance, and maintainability at scale.</p>
                                 </div>
                             </div>
                         </details>
@@ -164,7 +164,7 @@
                             <summary>Can Ravi review database migrations?</summary>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    <p>Absolutely. Migration review analyzes schema changes against your current structure and codebase usage. We catch missing rollback strategies, operations that will lock tables during deployment, column removals that will break deployed code, and index additions that might time out on large tables. This prevents the migration failures that cause production incidents.</p>
+                                    <p>Absolutely. Migration review analyzes schema changes against your codebase usage. We catch missing rollback strategies, operations that will lock tables during deployment, column removals that will break deployed code, and index additions that might time out on large tables. This prevents the migration failures that cause production incidents.</p>
                                 </div>
                             </div>
                         </details>
@@ -187,7 +187,7 @@
                             <summary>What data does Ravi access?</summary>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    <p>We read your code from GitHub PRs and database structure (table names, columns, indexes, row counts). We never touch actual customer data: no user emails, payment info, or business records. Everything is analyzed during the review and immediately discarded.</p>
+                                    <p>We read your code from GitHub PRs. We never touch actual customer data: no user emails, payment info, or business records. Everything is analyzed during the review and immediately discarded.</p>
                                 </div>
                             </div>
                         </details>
@@ -205,7 +205,7 @@
                             <summary>Can I control what Ravi has access to?</summary>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    <p>Yes. Choose which repositories and databases to connect. Database access is read-only and metadata-only. Revoke access instantly by removing the GitHub App or database credentials.</p>
+                                    <p>Yes. Choose which repositories to connect. Revoke access instantly by removing the GitHub App.</p>
                                 </div>
                             </div>
                         </details>

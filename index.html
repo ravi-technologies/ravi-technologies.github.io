@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -33,106 +32,54 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Your resident architect sees the system you already run.</h1>
-                <p class="hero-subtitle">Ravi is the resident architect on your team. It enforces production risk awareness by reading live telemetry throughput, latency distributions, cache health, traffic bursts, fragile dependencies, so every decision reflects how your system actually behaves, not just the diff.</p>
+                <h1>The AI code reviewer that knows your system.</h1>
+                <p class="hero-subtitle">Ravi reads your production telemetry (traffic patterns, latency distributions, slow queries) so every review reflects how your system actually behaves, not just the diff.</p>
                 <div class="hero-cta">
+                    <a href="https://ai.ravi.app" class="btn-primary">Get Started</a>
                     <a href="examples.html" class="btn-secondary">See Examples</a>
                 </div>
             </div>
         </section>
 
-        <nav class="chapter-nav" aria-label="Page chapters">
+        <section class="features" id="features">
             <div class="container">
-                <a href="#problem" class="chapter-link" data-chapter-link="problem">Problem</a>
-                <a href="#what-is-ravi" class="chapter-link" data-chapter-link="what-is-ravi">What is Ravi</a>
-                <a href="#resources" class="chapter-link" data-chapter-link="resources">Resources</a>
-            </div>
-        </nav>
-
-        <section class="how-it-works" id="how-it-works">
-            <div class="container">
-                <div class="chapter-block" id="problem" data-chapter-section>
-                    <h2>The Problem</h2>
-                    <div class="problem-narrative">
-                        <p>Your product runs on layered systems: services written across eras, databases stretched by growth, caches tuned to protect fragile dependencies, dashboards watching for the next spike.</p>
-
-                        <p><strong>Code review only sees the diff.</strong> Great architects embed in your reality; commodity AI reviewers don't. They respond to the diff in front of them, unaware of production hot paths, live traffic patterns, or the brittle dependencies your team cares about.</p>
-
-                        <p><strong>The failures are born in runtime reality.</strong> Latency regressions appear when retries slam a saturated service, migrations stall because replicas lag, and a “simple” query turns catastrophic on 80 million rows. Those risks only show up when you understand how the system behaves today.</p>
-                    </div>
-                </div>
-
-                <!-- What is Ravi -->
-                <div class="chapter-block" id="what-is-ravi" data-chapter-section>
-                    <h2>What is Ravi</h2>
-                    <p class="section-intro">Ravi is the system on your team that enforces production risk awareness. It ingests your production telemetry—APM traces, slow query alerts, cache metrics, traffic patterns, incident history—to anchor every code review in the realities of how your software runs today.</p>
-
-                    <div class="roadmap-grid roadmap-grid-three">
-                        <div class="roadmap-card architect-card">
-                            <div class="roadmap-icon">
-                                <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="4" y="4" width="40" height="40" rx="4" stroke="#00D4FF" stroke-width="2"/>
-                                    <path d="M14 18H34M14 24H34M14 30H28" stroke="#00D4FF" stroke-width="2" stroke-linecap="round"/>
-                                    <circle cx="36" cy="12" r="6" fill="#00D4FF"/>
-                                </svg>
-                            </div>
-                            <h4>System-Aware Reviews</h4>
-                            <p>With visibility into your production telemetry (APM traces, slow query dashboards, and live traffic patterns) Ravi enforces risk checks before merge. That N+1 query might handle 10 req/min fine, but at 500 req/min it becomes an outage waiting to happen.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18M9 21V9"/>
+                            </svg>
                         </div>
-                        <div class="roadmap-card architect-card">
-                            <div class="roadmap-icon">
-                                <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M24 4L4 14L24 24L44 14L24 4Z" stroke="#7C5CFF" stroke-width="2" stroke-linejoin="round"/>
-                                    <path d="M4 24L24 34L44 24" stroke="#7C5CFF" stroke-width="2" stroke-linejoin="round"/>
-                                    <path d="M4 34L24 44L44 34" stroke="#7C5CFF" stroke-width="2" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <h4>True Peer, Not a Linter</h4>
-                            <p>Other tools give the same advice to a 1,000-user startup as they would to Google. Ravi enforces trade-offs tuned to the risk profile you run today&mdash;accelerating when the blast radius is low, hardening when production impact is high.</p>
+                        <h3>System-Aware Reviews</h3>
+                        <p>With visibility into APM traces, slow query dashboards, and live traffic patterns, Ravi catches the N+1 query that handles 10 req/min fine but becomes an outage at 500 req/min.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
                         </div>
-                        <div class="roadmap-card architect-card">
-                            <div class="roadmap-icon">
-                                <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="24" cy="12" r="6" stroke="#8B5FFF" stroke-width="2"/>
-                                    <circle cx="12" cy="32" r="6" stroke="#8B5FFF" stroke-width="2"/>
-                                    <circle cx="36" cy="32" r="6" stroke="#8B5FFF" stroke-width="2"/>
-                                    <path d="M18 18L16 26M30 18L32 26" stroke="#8B5FFF" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <h4>Built for Engineering Leaders</h4>
-                            <p>You can't hire a senior architect for every team, but you can scale production risk guardrails across your organization. Ravi ensures every PR gets context-aware enforcement so issues are handled before they reach customers.</p>
+                        <h3>Context, Not Generic Advice</h3>
+                        <p>Other tools give the same advice to a startup as they would to Google. Ravi adapts to your risk profile: moving fast when blast radius is low, hardening when production impact is high.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
                         </div>
+                        <h3>Scale Your Senior Engineers</h3>
+                        <p>You can't hire an architect for every team. Ravi ensures every PR gets production-aware review so issues are caught before they reach customers.</p>
                     </div>
-                </div>
-
-                <!-- Learn More -->
-                <div class="chapter-block learn-more-block" id="resources" data-chapter-section>
-                <div class="learn-more">
-                    <div class="learn-more-card">
-                        <h4>🔍 See Examples</h4>
-                        <p>Explore real code reviews to see how Ravi catches performance issues before they reach production.</p>
-                        <a href="examples.html" class="learn-more-link">View examples →</a>
-                    </div>
-                    <div class="learn-more-card">
-                        <h4>❓ Frequently Asked Questions</h4>
-                        <p>Get answers to common questions about how Ravi works, pricing, security, and integration.</p>
-                        <a href="faq.html" class="learn-more-link">Read FAQs →</a>
-                    </div>
-                    <div class="learn-more-card">
-                        <h4>📚 Documentation</h4>
-                        <p>Step-by-step setup guide for connecting Ravi to your GitHub repos and observability stack.</p>
-                        <a href="https://ai.ravi.app/docs/" class="learn-more-link">Read the docs →</a>
-                    </div>
-                    <div class="learn-more-card">
-                        <h4>🔒 Privacy & Security</h4>
-                        <p>Full details on our security architecture, compliance, and data handling practices.</p>
-                        <a href="https://ai.ravi.app/privacy/" class="learn-more-link">Privacy policy →</a>
-                    </div>
-                </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer>
@@ -140,7 +87,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">Ravi</div>
-                    <p class="footer-tagline">System-aware intelligence for pull requests</p>
+                    <p class="footer-tagline">System-aware code review</p>
                     <p class="footer-copyright">© 2025 Ravi. All rights reserved.</p>
                 </div>
                 <div class="footer-section">
@@ -149,13 +96,12 @@
                         <a href="examples.html">Examples</a>
                         <a href="faq.html">FAQ</a>
                         <a href="https://ai.ravi.app/docs/">Documentation</a>
-                        <a href="https://ai.ravi.app/privacy/">Privacy & Security</a>
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Resources</h4>
+                    <h4>Legal</h4>
                     <div class="footer-links">
-                        <a href="#how-it-works">Why Ravi</a>
+                        <a href="https://ai.ravi.app/privacy/">Privacy</a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -169,9 +115,5 @@
         </div>
     </footer>
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-ruby.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
 </body>
 </html>

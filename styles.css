@@ -696,6 +696,13 @@ footer {
     margin-bottom: 8px;
     cursor: pointer;
     transition: all 0.15s ease;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.example-link:link,
+.example-link:visited {
+    color: var(--text-primary);
 }
 
 .example-link:hover {

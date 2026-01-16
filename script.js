@@ -8,6 +8,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const exampleTemplates = {};
     let hasInitializedExample = false;
 
+    const setActiveNavLink = () => {
+        const navLinks = document.querySelectorAll('.nav-links a');
+        if (!navLinks.length) {
+            return;
+        }
+
+        const path = window.location.pathname || '';
+        const currentFile = (path.split('/').pop() || 'index.html').toLowerCase();
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
+        });
+
+        navLinks.forEach(link => {
+            const href = (link.getAttribute('href') || '').toLowerCase();
+            if (!href || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('#')) {
+                return;
+            }
+
+            const hrefFile = href.split('#')[0].split('?')[0];
+            if (hrefFile === currentFile) {
+                link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+    };
+
+    setActiveNavLink();
+
     detailedExamples.forEach(example => {
         if (example.id) {
             exampleTemplates[example.id] = example;
@@ -344,18 +374,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         item.addEventListener('click', (event) => {
-            // Don't trigger if clicking on a link inside the FAQ
-            if (event.target.tagName === 'A') {
+            if (event.target.closest('a')) {
                 return;
             }
 
-            // Find the summary element and toggle the details
-            const summary = item.querySelector('summary');
-            if (summary && event.target !== summary) {
-                // If clicked anywhere except the summary, toggle the open state
-                event.preventDefault();
-                item.open = !item.open;
+            if (event.target.closest('pre, code')) {
+                return;
             }
+
+            if (event.target.closest('.gh-diff')) {
+                return;
+            }
+
+            const summary = item.querySelector('summary');
+            if (!summary) {
+                return;
+            }
+
+            if (summary.contains(event.target)) {
+                return;
+            }
+
+            event.preventDefault();
+            item.open = !item.open;
         });
     });
 });

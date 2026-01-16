@@ -52,7 +52,7 @@
                             </svg>
                         </div>
                         <h3>System-Aware Reviews</h3>
-                        <p>With visibility into APM traces, slow query dashboards, and live traffic patterns, Ravi catches the N+1 query that handles 10 req/min fine but becomes an outage at 500 req/min.</p>
+                        <p>With visibility into APM traces, slow query dashboards, and live traffic patterns, Ravi catches the “looks fine now, breaks at scale” change before it becomes a production incident.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
@@ -80,6 +80,194 @@
                 </div>
             </div>
         </section>
+
+        <section class="home-examples" id="examples" data-chapter-section>
+            <div class="container">
+                <div class="home-section-header">
+                    <h2>Examples</h2>
+                    <p class="section-intro">A few real scenarios Ravi catches before they ship. See the full library for the complete interactive walkthroughs.</p>
+                </div>
+
+                <div class="home-panel home-panel--rainbow">
+                    <div class="home-examples-grid">
+                        <details class="faq-item">
+                            <summary>Scale-based caching decisions (ship now vs cache later)</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>At small scale, adding Redis + invalidation is busywork. At high traffic, the same handler becomes a hot path and caching is the simplest reliability win.</p>
+
+                                    <div class="gh-diff" role="region" aria-label="Git diff example: app/controllers/products.py">
+                                        <div class="gh-diff-header">
+                                            <span class="gh-diff-file">app/controllers/products.py</span>
+                                            <span class="gh-diff-meta">@@ featured_products()</span>
+                                        </div>
+                                        <div class="gh-diff-body" aria-label="Diff">
+                                            <div class="gh-diff-line gh-context"><span class="gh-diff-ln">118</span><span class="gh-diff-sign"> </span><span class="gh-diff-code">def featured_products():</span></div>
+                                            <div class="gh-diff-line gh-del"><span class="gh-diff-ln">119</span><span class="gh-diff-sign">-</span><span class="gh-diff-code">    return Product.query.filter_by(featured=True).order_by(Product.priority.desc()).limit(10).all()</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">119</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">    return cache.get_or_set(</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">120</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">        "featured_products",</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">121</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">        lambda: Product.query.filter_by(featured=True)</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">122</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">            .order_by(Product.priority.desc()).limit(10).all(),</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">123</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">        ttl=120,</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">124</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">    )</span></div>
+                                            <div class="gh-diff-line gh-context"><span class="gh-diff-ln">125</span><span class="gh-diff-sign"> </span><span class="gh-diff-code"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Pagination that degrades at scale (offset vs cursor)</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Offset pagination is fine at 8K rows. At 5M rows, deep pages turn into slow queries. Ravi recommends cursor pagination only once the scale makes it necessary.</p>
+
+                                    <div class="gh-diff" role="region" aria-label="Git diff example: api/views.py">
+                                        <div class="gh-diff-header">
+                                            <span class="gh-diff-file">api/views.py</span>
+                                            <span class="gh-diff-meta">@@ list_transactions()</span>
+                                        </div>
+                                        <div class="gh-diff-body" aria-label="Diff">
+                                            <div class="gh-diff-line gh-context"><span class="gh-diff-ln">41</span><span class="gh-diff-sign"> </span><span class="gh-diff-code">@app.route("/api/transactions")</span></div>
+                                            <div class="gh-diff-line gh-context"><span class="gh-diff-ln">42</span><span class="gh-diff-sign"> </span><span class="gh-diff-code">def list_transactions():</span></div>
+                                            <div class="gh-diff-line gh-del"><span class="gh-diff-ln">43</span><span class="gh-diff-sign">-</span><span class="gh-diff-code">    page = request.args.get("page", 1, type=int)</span></div>
+                                            <div class="gh-diff-line gh-del"><span class="gh-diff-ln">44</span><span class="gh-diff-sign">-</span><span class="gh-diff-code">    per_page = 50</span></div>
+                                            <div class="gh-diff-line gh-del"><span class="gh-diff-ln">45</span><span class="gh-diff-sign">-</span><span class="gh-diff-code">    return Transaction.query.order_by(Transaction.created_at.desc())\</span></div>
+                                            <div class="gh-diff-line gh-del"><span class="gh-diff-ln">46</span><span class="gh-diff-sign">-</span><span class="gh-diff-code">        .offset((page - 1) * per_page).limit(per_page).all()</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">43</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">    cursor = request.args.get("cursor", type=int)</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">44</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">    query = Transaction.query.order_by(Transaction.created_at.desc(), Transaction.id.desc())</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">45</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">    if cursor:</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">46</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">        query = query.filter(Transaction.id &lt; cursor)</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">47</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">    return query.limit(50).all()</span></div>
+                                            <div class="gh-diff-line gh-context"><span class="gh-diff-ln">48</span><span class="gh-diff-sign"> </span><span class="gh-diff-code"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Migrations that are safe at 10K rows but risky at 10M</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>On a 10M-row table, “simple” ALTERs can lock writes for minutes. Ravi turns a risky migration into a phased rollout tailored to your data size.</p>
+
+                                    <div class="gh-diff" role="region" aria-label="Git diff example: migrations/versions/20250124_add_archived.py">
+                                        <div class="gh-diff-header">
+                                            <span class="gh-diff-file">migrations/versions/20250124_add_archived.py</span>
+                                            <span class="gh-diff-meta">@@ upgrade()</span>
+                                        </div>
+                                        <div class="gh-diff-body" aria-label="Diff">
+                                            <div class="gh-diff-line gh-context"><span class="gh-diff-ln">10</span><span class="gh-diff-sign"> </span><span class="gh-diff-code">def upgrade():</span></div>
+                                            <div class="gh-diff-line gh-del"><span class="gh-diff-ln">11</span><span class="gh-diff-sign">-</span><span class="gh-diff-code">    op.add_column("sessions", sa.Column("archived", sa.Boolean(), nullable=False, server_default=sa.false()))</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">11</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">    # Phase 1: add nullable column (fast)</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">12</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">    op.add_column("sessions", sa.Column("archived", sa.Boolean(), nullable=True))</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">13</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">    # Phase 2: backfill in batches in a job</span></div>
+                                            <div class="gh-diff-line gh-add"><span class="gh-diff-ln">14</span><span class="gh-diff-sign">+</span><span class="gh-diff-code">    # Phase 3: enforce NOT NULL + default in follow-up deploy</span></div>
+                                            <div class="gh-diff-line gh-context"><span class="gh-diff-ln">15</span><span class="gh-diff-sign"> </span><span class="gh-diff-code"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="home-section-cta">
+                        <a href="examples.html" class="btn-secondary">See All Examples</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-faq" id="faq" data-chapter-section>
+            <div class="container">
+                <div class="home-section-header">
+                    <h2>FAQ</h2>
+                    <p class="section-intro">Quick answers to the questions teams ask before trying Ravi. The full FAQ goes deeper on workflow, security, and privacy.</p>
+                </div>
+
+                <div class="home-panel">
+                    <div class="faq-grid">
+                        <details class="faq-item" open>
+                            <summary>What is Ravi and how is it different from other code review tools?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Ravi brings system-level awareness to every pull request. Unlike other code reviewers that focus on syntax or basic static analysis, Ravi understands your production reality: request volumes, latencies, API contracts, and traffic patterns.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>How long does setup take?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>It should just be a few minutes. You install the Ravi GitHub App and select the repos. That's it.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Will Ravi slow our PR workflow down?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>No. Reviews run in parallel with your existing CI and typically complete within 2-3 minutes. We focus on production-impacting issues, not style nitpicks.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>My senior engineers review everything</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Even senior reviewers can't simulate production scale on every PR. Let them focus on design while Ravi automates mechanical query and schema checks.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>What data does Ravi access?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>We read your code from GitHub PRs. We never touch actual customer data: no user emails, payment info, or business records.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Is my code stored or used to train AI models?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>No. We don't store your code in plaintext, we build a vectorised embedding of the structure (AST) of the code. We don't train models on it, and we don't use it for anything except giving you feedback on that specific PR.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Can I control what Ravi has access to?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Yes. Choose which repositories to connect. Revoke access instantly by removing the GitHub App.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Can Ravi review database migrations?</summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Absolutely. Migration review analyzes schema changes against your codebase usage. We catch missing rollback strategies, operations that will lock tables, and column removals that will break deployed code.</p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="home-section-cta">
+                        <a href="faq.html" class="btn-secondary">Read Full FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -101,7 +289,7 @@
                 <div class="footer-section">
                     <h4>Legal</h4>
                     <div class="footer-links">
-                        <a href="https://ai.ravi.app/privacy/">Privacy</a>
+                        <a href="https://ai.ravi.app/privacy/">Privacy &amp; Security</a>
                     </div>
                 </div>
                 <div class="footer-section">

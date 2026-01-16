@@ -149,6 +149,12 @@ body::before {
     background: rgba(255, 255, 255, 0.06);
 }
 
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.06);
+}
+
 /* Nav primary button - pill shaped, high contrast */
 .nav-links .btn-primary {
     background: var(--primary);
@@ -1018,6 +1024,189 @@ footer {
 }
 
 /* ============================================
+   Home: Examples & FAQ Teasers
+   ============================================ */
+.home-examples,
+.home-faq {
+    padding: 80px 0 120px;
+    border-top: 1px solid var(--border);
+}
+
+.home-section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 48px;
+}
+
+.home-section-header h2 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.home-section-header .section-intro {
+    margin-bottom: 0;
+}
+
+.home-panel {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.home-faq .home-panel {
+    max-width: 720px;
+}
+
+.home-panel--rainbow {
+    background:
+        linear-gradient(var(--card), var(--card)) padding-box,
+        linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.35),
+            rgba(168, 85, 247, 0.35),
+            rgba(236, 72, 153, 0.35),
+            rgba(249, 115, 22, 0.35),
+            rgba(234, 179, 8, 0.35),
+            rgba(34, 197, 94, 0.35),
+            rgba(6, 182, 212, 0.35),
+            rgba(99, 102, 241, 0.35)
+        ) border-box;
+    border: 1px solid transparent;
+}
+
+.home-examples-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-panel .faq-grid {
+    max-width: none;
+    margin: 0;
+    gap: 0;
+}
+
+.home-panel .faq-item {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 18px 0;
+}
+
+.home-panel .faq-item + .faq-item {
+    border-top: 1px solid var(--border);
+}
+
+.home-panel .faq-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.home-panel .faq-item[open] {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.home-section-cta {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.faq-item .code-block {
+    margin-top: 16px;
+}
+
+.gh-diff {
+    margin-top: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.gh-diff-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.gh-diff-file {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Fira Code', monospace;
+}
+
+.gh-diff-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Fira Code', monospace;
+    white-space: nowrap;
+}
+
+.gh-diff-body {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Fira Code', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+.gh-diff-line {
+    display: grid;
+    grid-template-columns: 52px 20px 1fr;
+    align-items: start;
+}
+
+.gh-diff-ln {
+    color: var(--text-muted);
+    padding: 0 10px;
+    text-align: right;
+    user-select: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.gh-diff-sign {
+    color: var(--text-muted);
+    padding: 0 8px;
+    user-select: none;
+}
+
+.gh-diff-code {
+    color: var(--text-secondary);
+    padding: 0 12px 0 0;
+    white-space: pre;
+}
+
+.gh-diff-line.gh-context {
+    background: transparent;
+}
+
+.gh-diff-line.gh-add {
+    background: rgba(34, 197, 94, 0.12);
+    border-left: 3px solid rgba(34, 197, 94, 0.65);
+}
+
+.gh-diff-line.gh-del {
+    background: rgba(239, 68, 68, 0.12);
+    border-left: 3px solid rgba(239, 68, 68, 0.65);
+}
+
+.gh-diff-line.gh-add .gh-diff-sign {
+    color: rgba(46, 160, 67, 0.95);
+}
+
+.gh-diff-line.gh-del .gh-diff-sign {
+    color: rgba(248, 81, 73, 0.95);
+}
+
+/* ============================================
    FAQ Page
    ============================================ */
 .faq-hero {
@@ -1033,8 +1222,65 @@ footer {
     padding: 32px 0 120px;
 }
 
+.faq-panel {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.faq-panel .faq-grid {
+    max-width: none;
+    margin: 0;
+    gap: 0;
+}
+
+.faq-panel .faq-item {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 18px 0;
+}
+
+.faq-panel .faq-item + .faq-item {
+    border-top: 1px solid var(--border);
+}
+
+.faq-panel .faq-item:hover,
+.faq-panel .faq-item[open] {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.faq-panel .faq-group {
+    margin-bottom: 0;
+}
+
+.faq-panel .faq-group + .faq-group {
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+}
+
+.faq-panel .faq-group h2 {
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+.faq-panel .faq-cta {
+    margin: 32px 0 0;
+    padding: 32px 0 0;
+    max-width: none;
+    border: none;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    background: transparent;
+}
+
 .faq-grid {
     max-width: 700px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -1148,12 +1394,12 @@ footer {
    CTA Sections
    ============================================ */
 .examples-cta {
-    margin: 80px 0;
-    padding: 56px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    margin: 80px auto;
     text-align: center;
+}
+
+.examples-cta.home-panel {
+    padding: 40px;
 }
 
 .examples-cta h2 {
@@ -1201,6 +1447,10 @@ footer {
    Responsive Design
    ============================================ */
 @media (max-width: 900px) {
+    .examples-cta.home-panel {
+        padding: 32px;
+    }
+
     .features-grid {
         grid-template-columns: 1fr;
         gap: 48px;
